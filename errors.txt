@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/screens.rpy", line 295: 'size' is not a keyword argument or valid child for the vbox statement.
+    size 40
+        ^
+
+Ren'Py Version: Ren'Py 8.0.0.22062402
+Thu Jul 14 16:56:10 2022
