@@ -1,13 +1,13 @@
 ﻿# The script of the game goes in this file.
 
-define m = Character("[name]", color="#41d941")
-define monster = Character("???", color="#2b0606")
+define m = Character("{b}[name]{b}", color="#ffffff")
+define monster = Character("{b}???{b}", color="#ffffff")
 
 # The game starts here.
 
 label start:
 
-    show bg placeholder
+    show bg shopping
 
     python:
 
@@ -19,6 +19,10 @@ label start:
 
     monster "..."
 
-    m "gasp"
+    m "Texto."
+
+    show enemy 2
+
+    m "{i}gasp{i}"
 
     return
