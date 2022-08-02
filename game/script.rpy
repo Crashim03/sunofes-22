@@ -7,6 +7,9 @@ define monster = Character("{b}???{b}", color="#ffffff")
 
 label start:
 
+    stop sound
+    stop music fadeout 2.0
+
     show bg shopping
 
     python:
@@ -19,7 +22,7 @@ label start:
 
     monster "..."
 
-    m "Texto."
+    m "Texto texto texto texto textoTexto texto texto texto textoTexto texto texto texto textoTexto texto texto texto textoTexto texto texto texto texto"
 
     show enemy 2
 
