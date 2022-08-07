@@ -1,42 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 215, in script call
-    call _load_reload_game from _call__load_reload_game_1
-  File "renpy/common/00keymap.rpy", line 508, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 508, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 518, in _execute_python_hide
-    renpy.load("_reload-2")
-Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
+  File "renpy/common/00start.rpy", line 278, in script
+    python:
+ScriptError: could not find label 'start'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 215, in script call
-    call _load_reload_game from _call__load_reload_game_1
-  File "renpy/common/00keymap.rpy", line 508, in script
-    python hide:
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 1111, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\python.py", line 1049, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00keymap.rpy", line 508, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 518, in _execute_python_hide
-    renpy.load("_reload-2")
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\loadsave.py", line 769, in load
-    log.unfreeze(roots, label="_after_load")
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\rollback.py", line 1078, in unfreeze
-    self.rollback(0, force=True, label=label, greedy=greedy, on_load=True)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\rollback.py", line 889, in rollback
-    self.load_failed()
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\rollback.py", line 807, in load_failed
-    raise Exception("Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?")
-Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\bootstrap.py", line 274, in bootstrap
+    renpy.main.main()
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\main.py", line 660, in main
+    run(restart)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\main.py", line 146, in run
+    renpy.execution.run_context(True)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\execution.py", line 938, in run_context
+    context.run()
+  File "renpy/common/00start.rpy", line 278, in script
+    python:
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\script.py", line 927, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'start'.
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.0.22062402
 SuNoFes 22 1.0
-Mon Aug  1 20:25:21 2022
+Sun Aug  7 18:54:53 2022
