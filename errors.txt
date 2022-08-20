@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label chapter_II is defined twice, at File "game/script.rpy", line 104:
-label chapter_II:
-and File "game/script.rpy", line 196:
-label chapter_II:
-
+File "game/script.rpy", line 241: 'return' is not a keyword argument or valid child for the screen statement.
+    return
+          ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Sun Aug  7 18:54:23 2022
+Mon Aug  8 00:25:51 2022

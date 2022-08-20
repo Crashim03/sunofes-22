@@ -1,9 +1,9 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 278, in script
-    python:
-ScriptError: could not find label 'start'.
+  File "game/script.rpy", line 295, in script
+    call screen newspaper
+ScriptError: could not find label 'chapter_III_newspaper'.
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -16,13 +16,13 @@ Full traceback:
     renpy.execution.run_context(True)
   File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\execution.py", line 938, in run_context
     context.run()
-  File "renpy/common/00start.rpy", line 278, in script
-    python:
+  File "game/script.rpy", line 295, in script
+    call screen newspaper
   File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\script.py", line 927, in lookup
     raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'start'.
+ScriptError: could not find label 'chapter_III_newspaper'.
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.0.22062402
 SuNoFes 22 1.0
-Sun Aug  7 18:54:53 2022
+Fri Aug 19 22:58:39 2022
