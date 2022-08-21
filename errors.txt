@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 241: 'return' is not a keyword argument or valid child for the screen statement.
-    return
-          ^
+File "game/script.rpy", line 720: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "No,{w=0.2} I don't feel anything."
+                                       ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Mon Aug  8 00:25:51 2022
+Sun Aug 21 00:57:36 2022

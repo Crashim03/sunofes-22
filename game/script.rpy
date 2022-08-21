@@ -611,15 +611,15 @@ label chapter_VII_conversation:
 
         "I'm [name],{w=0.2} a not so lucky shadow.":
 
-            barman_rel += 1
+            $ barman_rel += 1
 
-            lucky_shadow = True
+            $ lucky_shadow = True
 
             jump chapter_VII_not_lucky
 
         "I'm [name],{w=0.2} an ophthalmologist":
 
-            barman_rel -= 1
+            $ barman_rel -= 1
 
             jump chapter_VII_ophtal
 
@@ -717,15 +717,15 @@ label chapter_IX:
 
     menu:
 
-        "No,{w=0.2} I don't feel anything."
+        "No,{w=0.2} I don't feel anything.":
 
-            barman_rel += 1
+            $ barman_rel += 1
 
             jump chapter_IX_dont_feel
 
-        "Yes,{w=0.2} I do feel a little something."
+        "Yes,{w=0.2} I do feel a little something.":
 
-            barman_rel -= 1
+            $ barman_rel -= 1
 
             jump chapter_IX_feel
 
@@ -841,13 +841,13 @@ label chapter_X:
 
         "Trick the newspaper boy to giving you the information.":
 
-            newspaper_boy_rel += 1
+            $ newspaper_boy_rel += 1
 
             jump chapter_X_trick
 
-        "Agree with Newspaperboy's ideologies in order to give to the information."
+        "Agree with Newspaperboy's ideologies in order to give to the information.":
 
-            newspaper_boy_rel += 1
+            $ newspaper_boy_rel += 1
             
             jump chapter_X_agree
 
