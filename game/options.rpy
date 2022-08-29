@@ -29,7 +29,16 @@ define config.version = "1.0"
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""
+define gui.about = _p("""Game made by:
+
+{b}Alexandre Duarte{/b}------Art and programming
+{b}Mafalda Carvalhal{/b}------Narrative and plot
+{b}Nuno Ribeiro{/b}--------------Sound and music
+
+For {b}SuNoFes 22{/b}
+
+{b}GameDev Técnico{/b} is a Portuguese youth association of university students interested in developing games based in 
+Instituto Superior Técnico.
 """)
 
 

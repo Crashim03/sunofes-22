@@ -1,5 +1,4 @@
 ﻿# Characters
-
 define n = Character("{b}Newspaper Boy{/b}", color="#ffffff")
 define uk = Character("{b}???{/b}", color="#ffffff")
 define p = Character("{b}[name]{/b}", color="#ffffff")
@@ -8,6 +7,20 @@ define v1 = Character("{b}Voice 1{/b}", color="#ffffff")
 define v2 = Character("{b}Voice 2{/b}", color="#ffffff")
 define j = Character("{b}Janitor{/b}", color="#ffffff")
 define b = Character("{b}Barman{/b}", color="#ffffff")
+
+screen relationship_points:
+    zorder 0
+    vbar value AnimatedValue(relationship, max_relationship, delay=1.0):
+        xalign 1 yalign 1
+        xmaximum 47
+        ymaximum 327
+        left_bar Frame("bar/bar_empty.png", 0, 0)
+        right_bar Frame("bar/bar_full.png", 0, 0)
+        thumb "bar/thumb.png"
+        thumb_offset 30
+
+default relationship = 3
+default max_relationship = 6
 
 # The game starts here.
 label start:
@@ -25,7 +38,7 @@ label start:
     $ lucky_shadow = False
 
     stop sound
-    stop music fadeout 2.0
+    stop music fadeout 3.0
 
 label chapter_I:
 
@@ -36,23 +49,40 @@ label chapter_I:
 
         name = name.strip()
 
-    # Int. Cafe. Daytime.
+    scene int cafe
+    with fade
+
+    window show
  
     p "Hey Matthew!{w=0.5} Glad you called.{w=0.5} Is everything okay?"
+
+    show matthew happy
+    with dissolve
+
+    $ relationship = 3
+
+    show screen relationship_points
+
+    $ relationship += 1
 
     m "Yes,{w=0.2} it's all good!{w=0.5} I actually called because of the {b}chip{/b} you're looking for."
 
     p "Oh!"
+    $ relationship += 1
     
     p "I hope you have some good news for me!"
 
+    $ relationship += 1
     p "I'm starting to feel like a very unlucky person in general."
-
+    $ relationship += 1
     p "I've been looking for one to replace in my {b}arcade{/b} for far too long now."
+
 
     m "Well,{w=0.2} I've been searching on several websites and second-hand shops and still nothing."
 
-    m "I even set aside some time to dig into the arcade model itself and I'm afraid to break it to you that it hasn't been produced since 1971,{w=0.2} which makes it a lot harder to find that chip than it already is."
+    m "I even set aside some time to dig into the arcade model itself and I'm afraid to break it to you that it hasn't been produced since 1971."
+    
+    m "Which makes it a lot harder to find that chip than it already is."
 
     p "What about Greg?{w=0.5} Did he talk to you?"
 
@@ -76,7 +106,9 @@ label chapter_I:
 
     m "If you have any suggestions,{w=0.2} I'm all for it."
 
-    p "Ahmm... did you try going into that arcade-themed cafe in the mall?{w=0.5} I heard they have some pretty rare arcades."
+    p "Ahmm.{w=0.2}.{w=0.2}.{w=0.2} did you try going into that arcade-themed cafe in the mall?{w=0.5} I heard they have some pretty rare arcades."
+
+    show matthew angry
 
     m "Yes,{w=0.2} I did!{w=0.5} I went to a bunch of malls actually!"
 
@@ -85,6 +117,8 @@ label chapter_I:
     p "I think we should wait a couple more days to see if anyone answers the ad."
 
     p "If not,{w=0.2} I guess I'll give up my arcade."
+
+    show matthew happy
 
     m "What if.{w=0.2}.{w=0.2}.{w=0.2} No,{w=0.2} that's not a good idea."
 
@@ -120,30 +154,49 @@ label chapter_I:
 
 label chapter_II:
 
-    # Fades to black
 
-    "{b}Coppertale Mall
-    11:54 p.m.{/b}"
+    scene black
+    with fade
 
-    # Int. Coppertale Mal- Mall Entry. Night.
+    window hide
+
+    scene coppertale
+    with Dissolve(2.5)
+
+    scene int mall
+    with Fade(2,1,1)
+
+    window show
 
     p "{i}This is way different than I recalled.{w=0.5} A lot bigger too.{w=0.5} I hope I can find a way to the arcade.{/i}"
 
+
 label chapter_II_choice:
+
+    scene int mall
+    with dissolve
 
     menu:
 
         "Go foward.":
 
+            scene black
+            with fade
+
             jump chapter_II_go_foward
 
         "Turn right.":
+
+            scene black
+            with fade
 
             jump chapter_II_turn_right
 
 label chapter_II_go_foward:
 
-    "..You walk foward.{w=0.5} In front of you is an rundown old escalator that leads into an old food court.{w=0.5} To your left,{w=0.2} there's a dark hallway where you can see a shimmering light in the distance."
+    "..You walk foward.{w=0.5} In front of you is an rundown old escalator that leads into an old food court."
+    
+    "To your left,{w=0.2} there's a dark hallway where you can see a shimmering light in the distance."
 
     menu:
 
@@ -315,7 +368,8 @@ label chapter_IV_newspaper:
 
     uk "I know right?"
 
-    # Newspaper boy appears
+    show newspaper boy
+    with dissolve
 
     p "Ah-"
 
@@ -345,11 +399,15 @@ label chapter_IV_newspaper:
 
     n "What about you?{w=0.5} Have you tried it yourself?"
 
+    hide newspaper boy
+
     menu:
 
         "What do you mean by draining?":
 
             $ newspaper_boy_rel -= 1
+
+            show newspaper boy
 
             jump chapter_IV_lose_news
 
@@ -357,19 +415,21 @@ label chapter_IV_newspaper:
 
             $ newspaper_boy_rel += 1
 
+            show newspaper boy
+
             jump chapter_IV_gain_news
 
 label chapter_IV_lose_news:
 
-    p "Errm... No.{w=0.5} What do you mean by draining?"
+    p "Errm.{w=0.2}.{w=0.2}.{w=0.2} No.{w=0.5} What do you mean by draining?"
 
-    n "Oh,{w=0.2} you know... consume them."
+    n "Oh,{w=0.2} you know.{w=0.2}.{w=0.2}.{w=0.2} consume them."
 
     p "{i}Consume?{w=0.5} Just like straight up eating us?{w=0.5} Oh,{w=0.2} man,{w=0.2} don't tell me that letter was right when it talked about my life being at stake.{/i}"
 
     p "Ah,{w=0.2} I- I see what you mean..."
 
-    n "I sense you're slightly nervous,{w=0.2} pal... Are you okay?"
+    n "I sense you're slightly nervous,{w=0.2} pal.{w=0.2}.{w=0.2}.{w=0.2} Are you okay?"
 
     p "Yeah yeah I'm okay!"
 
@@ -379,7 +439,7 @@ label chapter_IV_lose_news:
 
     n "Well,{w=0.2} as I was saying,{w=0.2} it's by locking us in that most of us are not aware of our potential."
 
-    n "We are being restrained by ourselves... Perpetually afraid and ignorant,{w=0.2} while humans are freely roaming around."
+    n "We are being restrained by ourselves.{w=0.2}.{w=0.2}.{w=0.2} Perpetually afraid and ignorant,{w=0.2} while humans are freely roaming around."
 
     n "But I'm not gonna succumb to this sort of mindset!"
 
@@ -389,9 +449,11 @@ label chapter_IV_lose_news:
 
     p "{i}Better be more cautious next time.{/i}"
 
+    jump chapter_IV_person
+
 label chapter_IV_gain_news:
 
-    p "Hmm... No.{w=0.5} How can humans not be a threat?{w=0.5} I heard they took out 30 of our own..."
+    p "Hmm.{w=0.2}.{w=0.2}.{w=0.2} No.{w=0.5} How can humans not be a threat?{w=0.5} I heard they took out 30 of our own..."
 
     n "What about the incident in the {b}old mansion{/b}?!{w=0.5} I think everyone is making that a bigger fuss than it is."
 
@@ -411,9 +473,11 @@ label chapter_IV_gain_news:
 
     n "We emerge and thrive in abandoned places.{w=0.5} When they start being inhabited again we just cease to exist."
 
-    n "That's what happened in the old mansion,{w=0.2} but then again,{w=0.2} I think we're individually stronger.{w=0.5} So we could easily avoid these types of incidents if we're just smart about it instead of reinforcing security."
+    n "That's what happened in the old mansion,{w=0.2} but then again,{w=0.2} I think we're individually stronger."
+    
+    n "So we could easily avoid these types of incidents if we're just smart about it instead of reinforcing security."
 
-    n "I've encountered one and I'm perfectly fine... But I can't say the same for him.{w=0.5} Ha ha ha ha."
+    n "I've encountered one and I'm perfectly fine.{w=0.2}.{w=0.2}.{w=0.2} But I can't say the same for him.{w=0.5} Ha ha ha ha."
 
     p "Ha ha ha..."
 
@@ -421,11 +485,11 @@ label chapter_IV_gain_news:
 
     p "{i}Oh man,{w=0.2} I should really get out of here as quickly as possible.{w=0.5} In and out,{w=0.2} without raising suspicion.{/i}"
 
-    n "I swear to you,{w=0.2} pal... one day I will try to get out of this rathole and be free!{w=0.5} Just like my brother always wanted..."
+    n "I swear to you,{w=0.2} pal.{w=0.2}.{w=0.2}.{w=0.2} one day I will try to get out of this rathole and be free!{w=0.5} Just like my brother always wanted..."
 
-    n "My brother... my poor brother... you remind me of him... he also was very shy and quiet like you... until that DAMN SECURITY GUARD took him out just because he had hopes bigger than ours..."
+    n "My brother.{w=0.2}.{w=0.2}.{w=0.2} my poor brother.{w=0.2}.{w=0.2}.{w=0.2} you remind me of him.{w=0.2}.{w=0.2}.{w=0.2} he also was very shy and quiet like you.{w=0.2}.{w=0.2}.{w=0.2} until that DAMN SECURITY GUARD took him out just because he had hopes bigger than ours..."
 
-    n "You'll see... that security won't even see what's coming for him!"
+    n "You'll see.{w=0.2}.{w=0.2}.{w=0.2} that security won't even see what's coming for him!"
 
 label chapter_IV_person:
 
@@ -441,13 +505,17 @@ label chapter_IV_person:
 
     $ newspaper_boy_rel -= 1
 
-    n "yeah... Right!"
+    n "yeah.{w=0.2}.{w=0.2}.{w=0.2} Right!"
 
 label chapter_V:
 
     # Int. Mall Entry. Night.
 
-    # (An old janitor appears)
+    hide newspaper boy
+    with dissolve
+
+    show janitor happy
+    with dissolve
 
     p "Finally!{w=0.5} A human!"
 
@@ -455,7 +523,7 @@ label chapter_V:
 
     p "Yes!"
 
-    p "Please do you know what's going on here?{w=0.5} What are these shadowy -... thingies?{w=0.5} Can they really kill us?!"
+    p "Please do you know what's going on here?{w=0.5} What are these shadowy -.{w=0.2}.{w=0.2}.{w=0.2} thingies?{w=0.5} Can they really kill us?!"
 
     p "I just talked to one and I really think they can!{w=0.5} How can we get out of this mall?"
 
@@ -499,7 +567,8 @@ label chapter_V:
 
     # janitor smiles
 
-    # janitor disappears
+    hide janitor happy
+    with dissolve
 
     p "{i}How can he be here for that long?{w=0.5} And they've never noticed him?!{w=0.5} This is a heck of a situation.{/i}"
 
@@ -521,6 +590,8 @@ label chapter_VII:
 
     # (One the other side of that door there’s a bar. In the center is a shadow which is the Barman.)
 
+    show bartender normal
+
     b "Welcome to the Exit Bar!{w=0.5} Can I get you anything?"
 
     p "{i}That freaking janitor.{/i}"
@@ -537,12 +608,16 @@ label chapter_VII:
 
     b "Oh,{w=0.2} I {b}sensed{/b} you were new here.{w=0.5} We serve beer,{w=0.2} margarita,{w=0.2} whiskey sour,{w=0.2}...?{w=0.5} What are we having today?"
 
+    hide bartender normal
+
     menu:
 
         "I'll have a beer.":
 
             $ barman_rel += 1
             $ asked_drinks = True
+
+            show bartender normal
 
             jump chapter_VII_beer
 
@@ -551,11 +626,15 @@ label chapter_VII:
             $ barman_rel += 1
             $ asked_drinks = True
 
+            show bartender normal
+
             jump chapter_VII_martini
 
         "I'm good,{w=0.2} thanks.":
 
             $ barman_rel -= 1
+
+            show bartender normal
 
             jump chapter_VII_nothing
 
@@ -581,7 +660,7 @@ label chapter_VII_nothing:
 
     p "I'm good,{w=0.2} thanks."
 
-    b "Okay... so,{w=0.2} are you coming to meet some friends?{w=0.5} Or did you come by mistake?"
+    b "Okay.{w=0.2}.{w=0.2}.{w=0.2} so,{w=0.2} are you coming to meet some friends?{w=0.5} Or did you come by mistake?"
 
     p "I guess we could say I came by mistake."
 
@@ -605,7 +684,9 @@ label chapter_VII_conversation:
 
     b "I'm a lucky shadow,{w=0.2} hence the name.{w=0.5} hahaha."
 
-    b "What about you?{w=0.5} What do you do Mr... I'm sorry,{w=0.2} what's your name again?"
+    b "What about you?{w=0.5} What do you do Mr.{w=0.2}.{w=0.2}.{w=0.2} I'm sorry,{w=0.2} what's your name again?"
+
+    hide bartender normal
 
     menu:
 
@@ -615,17 +696,21 @@ label chapter_VII_conversation:
 
             $ lucky_shadow = True
 
+            show bartender normal
+
             jump chapter_VII_not_lucky
 
         "I'm [name],{w=0.2} an ophthalmologist":
 
             $ barman_rel -= 1
 
+            show bartender normal
+
             jump chapter_VII_ophtal
 
 label chapter_VII_not_lucky:
 
-    p "I haven't said it.{w=0.5} I'm [name].{w=0.5} a not so lucky -... shadow."
+    p "I haven't said it.{w=0.5} I'm [name].{w=0.5} a not so lucky -.{w=0.2}.{w=0.2}.{w=0.2} shadow."
 
     b "ha ha ha,{w=0.2} then let me tell you my secret.{w=0.5} Shadows say I'm lucky,{w=0.2} but in reality I'm just very optimistic."
 
@@ -643,7 +728,7 @@ label chapter_VII_not_lucky:
 
         p "Thank you."
 
-    p "I understand that,{w=0.2} but sometimes I just feel like I tried just about everything... not only for me,{w=0.2} but for my son as well."
+    p "I understand that,{w=0.2} but sometimes I just feel like I tried just about everything.{w=0.2}.{w=0.2}.{w=0.2} not only for me,{w=0.2} but for my son as well."
     
     p "I even find myself {b}where I don't belong{/b} sometimes,{w=0.2} you know?{w=0.5} There's -"
 
@@ -659,7 +744,7 @@ label chapter_VII_ophtal:
 
     p "{i}Damn it!{w=0.5} I fucked up already.{/i}" 
     
-    p "It's just a fancy way of saying I help people... through... their... senses..."
+    p "It's just a fancy way of saying I help people.{w=0.2}.{w=0.2}.{w=0.2} through.{w=0.2}.{w=0.2}.{w=0.2} their.{w=0.2}.{w=0.2}.{w=0.2} senses..."
 
     b "..."
 
@@ -677,11 +762,15 @@ label chapter_VII_beers_fall:
     
     p "Yeah yeah,{w=0.2} no worries."
 
-    # black screen
+    hide bartender normal
+    with dissolve
+
+    scene black
+    with fade
 
     if lucky_shadow:
 
-        p "{i}Phew!{w=0.5} Well... he seems nice!{w=0.5} Still scared... for my life!{w=0.5} But I think I'm doing okay.{/i}"
+        p "{i}Phew!{w=0.5} Well.{w=0.2}.{w=0.2}.{w=0.2} he seems nice!{w=0.5} Still scared.{w=0.2}.{w=0.2}.{w=0.2} for my life!{w=0.5} But I think I'm doing okay.{/i}"
 
         p "{i}Maybe when I come back I can get him to tell me where I can get out of this hell hole.{/i}"
     
@@ -695,6 +784,9 @@ label chapter_VIII:
 
     p "Excuse me,{w=0.2} sir?"
 
+    show janitor happy
+    with dissolve
+
     j "Hello,{w=0.2} sir,{w=0.2} may I help you with anything?"
 
     p "Hello again."
@@ -703,17 +795,29 @@ label chapter_VIII:
 
     p "Well,{w=0.2} kind of,{w=0.2} yes.{w=0.5} Speaking of it,{w=0.2} the bartender,{w=0.2} Lucky,{w=0.2} asked for you."
 
+    hide janitor happy
+    with dissolve
+
 label chapter_IX:
 
     # Int. Coppertale Mall - Exit Bar. Night
 
     p "We're here!"
 
+    show janitor happy at left
+    with dissolve
+
+    show bartender normal
+    with dissolve
+
     b "Thank you,{w=0.2} [name]."
 
-    b "Hmm... I'm sensing something off... Do you feel that...like something eerie?{w=0.5} Or is it just me?"
+    b "Hmm.{w=0.2}.{w=0.2}.{w=0.2} I'm sensing something off.{w=0.2}.{w=0.2}.{w=0.2} Do you feel that...like something eerie?{w=0.5} Or is it just me?"
 
     p "{i}I completely forgot that we can't have a strong presence,{w=0.2} otherwise they'll notice we're humans.{/i}"
+
+    hide bartender normal
+    hide janitor happy
 
     menu:
 
@@ -721,21 +825,27 @@ label chapter_IX:
 
             $ barman_rel += 1
 
+            show bartender normal
+            show janitor happy at left
+
             jump chapter_IX_dont_feel
 
         "Yes,{w=0.2} I do feel a little something.":
 
             $ barman_rel -= 1
 
+            show bartender normal
+            show janitor happy at left
+
             jump chapter_IX_feel
 
 label chapter_IX_dont_feel:
 
-    p "No,{w=0.2} I don't feel anything.{w=0.5} What about you... hm... Mr... Janitor?{w=0.5} Do you feel anything?"
+    p "No,{w=0.2} I don't feel anything.{w=0.5} What about you.{w=0.2}.{w=0.2}.{w=0.2} hm.{w=0.2}.{w=0.2}.{w=0.2} Mr.{w=0.2}.{w=0.2}.{w=0.2} Janitor?{w=0.5} Do you feel anything?"
 
     # suspanse
 
-    j "I do,{w=0.2} actually... I sense... beer!{w=0.5} I'll go ahead and clean it up."
+    j "I do,{w=0.2} actually.{w=0.2}.{w=0.2}.{w=0.2} I sense.{w=0.2}.{w=0.2}.{w=0.2} beer!{w=0.5} I'll go ahead and clean it up."
 
     b "Right!{w=0.5} Almost forgot about that.{w=0.5} Thank you again [name] for the help!"
 
@@ -757,9 +867,12 @@ label chapter_IX_feel:
 
     j "Sure will boss!{w=0.5} On it."
 
-    b "Thank you again [player] for the help!{w=0.5} However I can repay you,{w=0.2} just say the word."
+    b "Thank you again [name] for the help!{w=0.5} However I can repay you,{w=0.2} just say the word."
 
 label chapter_IX_goodbye:
+
+    hide janitor happy
+    with dissolve
 
     if barman_rel <= 0:
 
@@ -781,7 +894,7 @@ label chapter_IX_goodbye:
 
         b "Don't get me wrong.{w=0.5} You're a nice kid,{w=0.2} but the moment the shadows find out you're a human,{w=0.2} they are definitely gonna take you as a threat."
 
-        b "So just... be careful out there!"
+        b "So just.{w=0.2}.{w=0.2}.{w=0.2} be careful out there!"
 
     p "Thanks."
 
@@ -799,7 +912,7 @@ label chapter_IX_goodbye:
 
     b "..."
 
-    b "Well kid... not gonna lie to you.{w=0.5} Nobody has gone out there for years now."
+    b "Well kid.{w=0.2}.{w=0.2}.{w=0.2} not gonna lie to you.{w=0.5} Nobody has gone out there for years now."
 
     b "And the last person who tried,{w=0.2} got drained by the mall security guard."
 
@@ -825,11 +938,17 @@ label chapter_IX_goodbye:
 
     b "I really do mean this: BE careful out there."
 
+    hide bartender normal
+    with dissolve
+
 label chapter_X:
 
     # Int. Coppertale Mall - Newspaper Stand. Night.
 
     p "Hello again."
+
+    show newspaper boy
+    with dissolve
 
     n "Hey."
 
@@ -837,11 +956,15 @@ label chapter_X:
 
     p "Yes,{w=0.2} actually."
 
+    hide newspaper boy
+
     menu:
 
         "Trick the newspaper boy to giving you the information.":
 
             $ newspaper_boy_rel += 1
+
+            show newspaper boy
 
             jump chapter_X_trick
 
@@ -849,6 +972,8 @@ label chapter_X:
 
             $ newspaper_boy_rel += 1
             
+            show newspaper boy
+
             jump chapter_X_agree
 
 label chapter_X_trick:
@@ -857,9 +982,9 @@ label chapter_X_trick:
 
     n "Why do you care?!"
 
-    p "Well,{w=0.2} you said something about the security guard taking out your brother... How did he find out your brother was leaving?"
+    p "Well,{w=0.2} you said something about the security guard taking out your brother.{w=0.2}.{w=0.2}.{w=0.2} How did he find out your brother was leaving?"
 
-    n "You see,{w=0.2} my brother was always smart,{w=0.2} but not very cautious... The day he planned his escape,{w=0.2} he was followed by the guard until one of the vents."
+    n "You see,{w=0.2} my brother was always smart,{w=0.2} but not very cautious.{w=0.2}.{w=0.2}.{w=0.2} The day he planned his escape,{w=0.2} he was followed by the guard until one of the vents."
 
     p "I see..."
 
@@ -867,7 +992,7 @@ label chapter_X_trick:
 
     n "To this day I still have nightmares about that night..."
 
-    p "And you said you were planning something against that security guard... how so?"
+    p "And you said you were planning something against that security guard.{w=0.2}.{w=0.2}.{w=0.2} how so?"
 
     n "That mall entrance security guard was the damn bastard who sentenced my brother."
 
@@ -885,17 +1010,21 @@ label chapter_X_trick:
 
     n "Problem is: The guard is trained to sense from very far away so he can easily feel anyone just by getting near the room."
 
-    n "Plus,{w=0.2} after getting in,{w=0.2} we would still need some time to unlock the safe where the prints are,{w=0.2} which is very impossible due to the fact the security guard doesn't go farther than a 45-60 seconds distance from the room."
+    n "Plus,{w=0.2} after getting in,{w=0.2} we would still need some time to unlock the safe where the prints are."
+    
+    n "Which is very impossible due to the fact the security guard doesn't go farther than a 45-60 seconds distance from the room."
 
     n "So yeah,{w=0.2} that's the biggest challenge to get through.{w=0.5} But as I said: one day I WILL find a way and get the hell out of this rat hole!"
 
-    p "What a hell of a story... I sincerely wish you the best of luck finding a way!"
+    p "What a hell of a story.{w=0.2}.{w=0.2}.{w=0.2} I sincerely wish you the best of luck finding a way!"
 
     n "Cheers bud!"
 
-    n "Besides that,{w=0.2} can I help you with anything else?{w=0.5} Maybe you finally brought that cash you needed... haha"
+    n "Besides that,{w=0.2} can I help you with anything else?{w=0.5} Maybe you finally brought that cash you needed.{w=0.2}.{w=0.2}.{w=0.2} haha"
 
     p "No,{w=0.2} thanks anyway though!"
+
+    jump chapter_XI
 
 label chapter_X_agree:
 
@@ -909,7 +1038,7 @@ label chapter_X_agree:
 
     n "That's what I always say.{w=0.5} Security reinforcement doesn't protect us,{w=0.2} it protects them."
 
-    n "If more shadows would have listened to me,{w=0.2} we would be outside by now... free to go wherever we like... to drain whoever we want.{w=0.5} Not enclosed in this ugly ass concrete box."
+    n "If more shadows would have listened to me,{w=0.2} we would be outside by now.{w=0.2}.{w=0.2}.{w=0.2} free to go wherever we like.{w=0.2}.{w=0.2}.{w=0.2} to drain whoever we want.{w=0.5} Not enclosed in this ugly ass concrete box."
 
     p "{i}Oh,{w=0.2} boy,{w=0.2} what am I putting myself into?!{/i}"
 
@@ -919,7 +1048,7 @@ label chapter_X_agree:
 
     n "I don't know if that's a good idea..."
 
-    p "I've got nothing to lose... But I need your help if I want to succeed."
+    p "I've got nothing to lose.{w=0.2}.{w=0.2}.{w=0.2} But I need your help if I want to succeed."
 
     p "Once I'm out,{w=0.2} it's easier to help you escape.{w=0.5} They won't ever believe I'll be heading back to get you."
 
@@ -933,15 +1062,15 @@ label chapter_X_agree:
 
     n "Hmm..."
 
-    n "It would be very risky... but I think there's a blueprint of the mall with all of its vents registered."
+    n "It would be very risky.{w=0.2}.{w=0.2}.{w=0.2} but I think there's a blueprint of the mall with all of its vents registered."
 
-    n "They might be our only way out.{w=0.5} After my brother tried to go through one... they sealed it,{w=0.2} but for all I know,{w=0.2} that's the only one they've taken care of."
+    n "They might be our only way out.{w=0.5} After my brother tried to go through one.{w=0.2}.{w=0.2}.{w=0.2} they sealed it,{w=0.2} but for all I know,{w=0.2} that's the only one they've taken care of."
 
     n "Problem is: the blueprint is in the security guard's control room."
 
     p "Do you think I can take it without him noticing?"
 
-    n "It's very unlikely... but not impossible."
+    n "It's very unlikely.{w=0.2}.{w=0.2}.{w=0.2} but not impossible."
 
     n "He usually walks around the mall entry and it takes him more or less 45 seconds to a minute to go from his room,{w=0.2} around the entrance,{w=0.2} and back."
 
@@ -950,6 +1079,9 @@ label chapter_X_agree:
     p "Alright."
 
     p "I'll try not to get drained haha."
+
+    hide newspaper boy
+    with dissolve
 
 label chapter_XI:
 
