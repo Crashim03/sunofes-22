@@ -64,9 +64,6 @@ label chapter_I:
 
     $ relationship = 3
 
-    show screen relationship_points
-
-    $ relationship += 1
 
     m "Yes,{w=0.2} it's all good!{w=0.5} I actually called because of the {b}chip{/b} you're looking for."
 
@@ -1173,7 +1170,7 @@ label chapter_XI_paper_cabinets:
 
             jump chapter_XI_right_cabinet
 
-        "Look somewhere else."
+        "Look somewhere else.":
 
             jump chapter_XI_first_options
 
@@ -1219,7 +1216,7 @@ label chapter_XI_jacket:
 
             jump chapter_XI_inner_pocket
 
-        "Look somewhere else."
+        "Look somewhere else.":
 
             jump chapter_XI_first_options
 
@@ -1680,13 +1677,13 @@ label chapter_XVI_vent:
 
         "Try to gain his trust again by pretending you are sticking to the plan.":
 
-            newspaper_boy_rel += 1
+            $ newspaper_boy_rel += 1
 
             jump chapter_XVI_pretend
 
         "Try and trick the newspaper boy to leave the vent.":
 
-            newspaper_boy_rel -= 1
+            $ newspaper_boy_rel -= 1
 
             jump chapter_XVI_trick
 
@@ -1796,7 +1793,7 @@ label chapter_XVI_talk:
 
     return
 
-label chapter_XVI_hide.
+label chapter_XVI_hide:
 
     p "{i}Oh god oh god god{/i}"
 
