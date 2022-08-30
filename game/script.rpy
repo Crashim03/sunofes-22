@@ -1,4 +1,5 @@
 ﻿# Characters
+define s = Character("{b}Security Guard{/b}", color="#ffffff")
 define n = Character("{b}Newspaper Boy{/b}", color="#ffffff")
 define uk = Character("{b}???{/b}", color="#ffffff")
 define p = Character("{b}[name]{/b}", color="#ffffff")
@@ -29,13 +30,15 @@ label start:
     $ escalator_tries = 0
     $ dark_hallway_tries = 0
     $ merry_go_round_tries = 0
+    $ asked_drinks = False
+    $ lucky_shadow = False
+    $ has_keys = False
+    $ tricked_news = False
+    $ had_conversation = True
 
     # Relationships
     $ newspaper_boy_rel = 3
     $ barman_rel = 3
-
-    $ asked_drinks = False
-    $ lucky_shadow = False
 
     stop sound
     stop music fadeout 3.0
@@ -304,7 +307,7 @@ label chapter_III:
 
     # Int. Mall - Mall (you can see a lit up store). Night.
 
-    "One of the stores to your right is lit with candles.{w=0.5}You get a little bit closer and hear two distinct {b}voices{/b} coming from inside."
+    "One of the stores to your right is lit with candles.{w=0.5} You get a little bit closer and hear two distinct {b}voices{/b} coming from inside."
 
     p "{i}People?{w=0.5} What are they doing here?{/i}"
 
@@ -337,8 +340,8 @@ label chapter_III:
     "Letter:
     To anyone who can read this,
 
-    I don't have much time left, so I'm trying to make this as brief as possible. 
-    If you have been hearing and having some strange sights, be aware. These aren't what you are expecting as they're not human and definitely not friendly either. 
+    I don't have much time left,{w=0.2} so I'm trying to make this as brief as possible. 
+    If you have been hearing and having some strange sights,{w=0.2} be aware. These aren't what you are expecting as they're not human and definitely not friendly either. 
     Despite that, DON'T PANIC!{w=0.5} They cannot see you, just hear and feel your presence. If they find out you're a human, your life will be at stake.
     Unfortunately, I've come to discover this too late, but I hope you don't make the same mistakes as me."
 
@@ -876,6 +879,8 @@ label chapter_IX_goodbye:
 
     if barman_rel <= 0:
 
+        $ had_conversation = True
+
         b "Hey,{w=0.2} now that's just the two of us.{w=0.5} I need to tell you a couple of words."
 
         b "..."
@@ -964,6 +969,8 @@ label chapter_X:
 
             $ newspaper_boy_rel += 1
 
+            $ tricked_news = True
+
             show newspaper boy
 
             jump chapter_X_trick
@@ -1023,6 +1030,9 @@ label chapter_X_trick:
     n "Besides that,{w=0.2} can I help you with anything else?{w=0.5} Maybe you finally brought that cash you needed.{w=0.2}.{w=0.2}.{w=0.2} haha"
 
     p "No,{w=0.2} thanks anyway though!"
+
+    hide newspaper boy
+    with dissolve
 
     jump chapter_XI
 
@@ -1085,9 +1095,720 @@ label chapter_X_agree:
 
 label chapter_XI:
 
+    scene black 
+    with fade
+
+    p "Okay,{w=0.2} I see it!"
+
+    p " The control room!"
+
+    p " I must be quick."
+
     # Int. Coppertale Mall - Control Room. Night
 
-    p "{i}I think this is it!{/i}"
+    "As you enter the room you see two paper trays piled up on the left and two cabinets side by side on top of the front desk."
+
+    "You take a look around.{w=0.5} The office looks messy and most of the equipment seems outdated and a bit cluttered."
+
+    "Despite this,{w=0.2} you can't help but notice an old security guard's jacket in a coat hanger behind the door."
+
+    p "Where should I start?"
+
+label chapter_XI_first_options:
+
+    menu:
+        "Search through the documents in the paper trays.":
+
+            jump chapter_XI_paper_strays
+
+        "Search the paper cabinets on top of the front desk.":
+
+            jump chapter_XI_paper_cabinets
+
+        "Search the jacket on the coat hanger.":
+
+            jump chapter_XI_jacket
+
+label chapter_XI_paper_strays:
+
+    "There's a stack of paper in each tray.{w=0.5} The bottom one is practically full while the top one only has a couple of loosely folded sheets of paper."
+
+    menu:
+
+        "Search the tray at the bottom.":
+            
+            jump chapter_XI_bottom
+
+        "Search the tray at the top.":
+
+            jump chapter_XI_top
+
+        "Look somewhere else.":
+
+            jump chapter_XI_first_options
+
+label chapter_XI_bottom:
+
+    "You notice a logo in each paper resembling the one from the newspaper you saw earlier.{w=0.5} Each has some distinct black spots which you assume are some kind of pictures of shadows."
+
+    jump chapter_XI_paper_strays
+
+label chapter_XI_top:
+
+    "These seem to be some kind of personal notes.{w=0.5} Teared up pieces of diary?{w=0.5} Maybe some cooking recipes?{w=0.5} Who knows."
+
+    jump chapter_XI_paper_strays
+
+label chapter_XI_paper_cabinets:
+
+    "The paper cabinet on the left is open.{w=0.5} Inside,{w=0.2} the documents seem to be arranged in a very disordered manner.{w=0.5} The cabinet on the right is closed."
+
+    menu:
+
+        "Go through the documents on the left cabinet.":
+            
+            jump chapter_XI_left_cabinet
+
+        "Try to open the right cabinet.":
+
+            jump chapter_XI_right_cabinet
+
+        "Look somewhere else."
+
+            jump chapter_XI_first_options
+
+label chapter_XI_left_cabinet:
+
+    "You take a quick look at the documents on the left cabinet.{w=0.5} These seem to be identity documents of the mall's vendors."
+
+    jump chapter_XI_paper_cabinets
+
+label chapter_XI_right_cabinet:
+
+    if has_keys:
+
+        menu:
+
+            "Use the small key with a golden shell engraved.":
+
+                jump chapter_XI_small_key
+
+            "Use the medium-sized key (rusty and old).":
+
+                jump chapter_XI_medium_key
+
+            "Use the large key with a blue tag.":
+
+                jump chapter_XI_large_key
+
+    else:
+
+        "You try to open the right cabinet.{w=0.5} It's locked.{w=0.5} You would need a key to open it."
+
+        jump chapter_XI_paper_cabinets
+
+label chapter_XI_jacket:
+
+    "You check both pockets on the jacket.{w=0.5} The one on the right is ripped,{w=0.2} while the other has some lint and a couple of strange coins."
+    
+    "You're about to give up,{w=0.2} but you notice an inner pocket."
+
+    menu:
+
+        "Check the inner pocket.":
+
+            jump chapter_XI_inner_pocket
+
+        "Look somewhere else."
+
+            jump chapter_XI_first_options
+
+label chapter_XI_inner_pocket:
+
+    "There are three keys inside.{w=0.5} A small one with a golden shell engraved,{w=0.2} a medium-sized one,{w=0.2} rusty and old,{w=0.2} and a large one with a blue tag."
+
+    p "{i}I'll keep them.{w=0.5} They might be useful!{/i}"
+
+    $ has_keys = True
+
+    jump chapter_XI_jacket
+
+label chapter_XI_small_key:
+
+    p "{i}A small for a small cabinet.{/i}"
+
+    "After a few tries,{w=0.2} you acknowledge that you picked the wrong key."
+
+    jump chapter_XI_right_cabinet
+
+label chapter_XI_medium_key:
+
+    p "{i}The middle one it is.{/i}"
+
+    "After a few tries,{w=0.2} you acknowledge that you picked the wrong key."
+
+    jump chapter_XI_right_cabinet
+
+label chapter_XI_large_key:
+
+    p "{i}Maybe the blue tag is referring to the blueprints.{/i}"
+
+    "The lock opens."
+
+    p "Finally!"
+
+label chapter_XII:
+
+    # Int. Coppertale Mall - Mall entry. Night
+
+    p "I got it!"
+
+    p "Now,{w=0.2} I just need to check where these vents are!"
+
+    p "Hm,{w=0.2} I can't understand anything here!"
+
+    p "It's all blurry!"
+
+    show newspaper boy
+    with dissolve
+
+    if tricked_news:
+
+        jump chapter_XII_decrease
+
+    else:
+
+        jump chapter_XII_agree
+
+label chapter_XII_decrease:
+
+    n "What's that on your hand?"
+
+    $ newspaper_boy_rel -= 1
+
+    p "Oh it's you!"
+
+    n "..."
+
+    p "This is.{w=0.2}.{w=0.2}.{w=0.2} ahm.{w=0.2}.{w=0.2}.{w=0.2} some documents from this business I run.{w=0.5} Nothing that important,{w=0.2} but I'm kind of in a hurry to deliver them."
+
+    n "Yeah,{w=0.2} sure you are!"
+
+    n "Now tell me..."
+
+    n "What are you planning to do with those blueprints?"
+
+    p "{i}Fuck.{/i}"
+
+    p "Look,{w=0.2} I'm sorry I didn't tell you my plan before.{w=0.5} I wanted to keep it as secretive as I could.{w=0.5} It's nothing personal!"
+
+    n "Then you shouldn't be walking around with blueprints on your hands.{w=0.5} I can sense them from half a mile away."
+
+    p "Yeah..."
+
+    n "So,{w=0.2} what's our plan?"
+
+    p "\"Our\" plan?"
+
+    n "Yeah,{w=0.2} how are we going to get out of here?"
+
+    p "Well.{w=0.2}.{w=0.2}.{w=0.2} I was thinking about escaping through one of the vents..."
+
+    p "I've managed to keep a low profile until now,{w=0.2} so I think I might have a chance of making it."
+
+    n "True,{w=0.2} you're not known around here,{w=0.2} but you're not as familiar with the mall and its environment as I am.{w=0.5} I think I can be a great asset."
+
+    p "...Yes,{w=0.2} you're right.{w=0.5} I could use some help in.{w=0.2}.{w=0.2}.{w=0.2} ahm.{w=0.2}.{w=0.2}.{w=0.2} interpreting this blueprint."
+
+    n "Yeah,{w=0.2} for sure."
+
+    n "When were you planning to escape?"
+
+    p "Today."
+
+    n "Today?!"
+
+    p "Yes.{w=0.5} I can't wait any longer.{w=0.5} I just need your opinion on this blueprint."
+
+    p "And if I succeed,{w=0.2} I'll come back for you as soon as I can."
+
+    n "Hm.{w=0.2}.{w=0.2}.{w=0.2} Do I need to remind you that you just tried to trick me?{w=0.5} \"It's for a bussiness I run\",{w=0.2} you said.{w=0.5} How the hell am I supposed to trust you after that?"
+
+    p "{i}Okay,{w=0.2} time to bluff my way out of this!{/i}"
+
+    p "The truth is: You just have to!"
+
+    p "I mean.{w=0.2}.{w=0.2}.{w=0.2} Do you have any other ideas?{w=0.5} This is the only way!"
+
+    p "And if you rat on me,{w=0.2} you also lose everything.{w=0.5} I'll tell everyone you were also planning to escape and planning to avenge your brother by taking on the security guard."
+
+    p "If I go down,{w=0.2} you go down with me!"
+
+    n "..."
+
+    n "Ok Ok fine,{w=0.2} you win!"
+
+    n "Give me that damn blueprint then."
+
+    # Paper sound effect
+
+    n "..."
+
+    n "Hmmm from what I can sense here,{w=0.2} the only way out is through a vent inside the security guard's control room itself."
+
+    n "Did you see it by chance while you were there?"
+
+    p "No,{w=0.2} I spent very little time there."
+
+    n "Well,{w=0.2} I'm afraid you'll have to go in there again and try to find the hidden conduct."
+
+    p "Alright.{w=0.5} I'll do my best!{w=0.5} And I assure you,{w=0.2} if I can get out of this alive,{w=0.2} I'll make sure you're next."
+
+    p "So don't raise any suspicion until then."
+
+    n "It's not like I have much choice in believing you or not,{w=0.2} but okay."
+
+    n "I wish you good luck.{w=0.5} And not A WORD about me if you get caught."
+
+    p "\"Mum's the word.\""
+
+    hide newspaper boy
+    with dissolve
+
+    p "{i}I can't believe I just pulled that one off.{w=0.2}.{w=0.2}.{w=0.2} Now I REALLY need to get out of here as quickly as possible.{/i}"
+
+    jump chapter_XIII
+
+label chapter_XII_agree:
+
+    n "You GOT IT!"
+
+    $ newspaper_boy_rel += 1
+
+    p "Oh,{w=0.2} hey!"
+
+    p "Yeah,{w=0.2} I got it!"
+
+    n "So,{w=0.2} where can we find these vents?"
+
+    p "I'm not sure yet!"
+
+    n "Open it then!"
+
+    p "You can check it out first if you want..."
+
+    n ".{w=0.2}.{w=0.2}.{w=0.2} Okay,{w=0.2} let me sense it."
+
+    n "..."
+
+    p "..."
+    
+    p "What are our options?"
+
+    n "Well..."
+
+    n "Apparently,{w=0.2} they sealed all of the vents but one."
+
+    p "Where is it?"
+
+    n "..."
+
+    n "It's -.{w=0.5} I feel bad telling you this,{w=0.2} but the vent is in the {b}security guard's control room{/b}..."
+
+    n "Did you see it by chance?"
+
+    p "No,{w=0.2} I spent very little time there."
+
+    n "Are you thinking about going in again?"
+
+    p "What choice do I have?"
+
+    p "I already stole the blueprint.{w=0.5} If the guard ever finds that out,{w=0.2} I'm screwed."
+
+    p "Might as well just go through with the plan."
+
+    n "That's the spirit!"
+
+    p "If in the next 10 minutes,{w=0.2} things stay as calm as they are right now,{w=0.2} take it as a win!"
+
+    p "Then,{w=0.2} once I'm out there,{w=0.2} I'll make sure you're next,{w=0.2} so don't raise any suspicion until then."
+
+    n "That's very brave.{w=0.5} I'm sure you are going to be a great asset in my escape."
+
+    n "Then I'll avenge my brother and show the shadows a better way of life!"
+
+    p "...I'm glad to help you out..."
+
+    hide newspaper boy
+    with dissolve
+
+    p "{i}I guess if there are lunatics in the human world,{w=0.2} the shadow world won't be much different.{/i}"
+
+label chapter_XIII:
+
+    # Int. Coppertale Mall: Control Room. Night
+
+    p "Where would a vent in this room be?!"
+
+label chapter_XIII_first_choices:
+
+    $ control_room_tries += 1
+
+    if control_room_tries > 3:
+
+        jump chapter_XIII_guard
+
+    menu:
+
+        "Look behind the monitor.":
+
+            jump chapter_XIII_monitor
+
+        "Look under the desk.":
+
+            jump chapter_XIII_desk
+
+        "Look behind the wooden board.":
+
+            jump chapter_XIII_board
+
+        "Look behind the soundboard.":
+
+            jump chapter_XIII_soundboard
+
+
+label chapter_XIII_monitor:
+
+    "You look behind the monitor."
+
+    "Surprise,{w=0.2} surprise!{w=0.5} It's a white plane wall."
+
+    jump chapter_XIII_first_choices
+
+label chapter_XIII_desk:
+
+    "You look under the desk.{w=0.5} I hope they can sense dust because this surely needs to be vacuumed."
+
+    jump chapter_XIII_first_choices
+
+label chapter_XIII_board:
+
+    "You look behind the wooden board.{w=0.5} There's a hole in the wall,{w=0.2} the size of a football."
+
+    menu:
+
+        "Check the hole.":
+
+            jump chapter_XIII_beer
+
+        "Look somewhere else.":
+
+            jump chapter_XIII_first_choices
+
+label chapter_XIII_beer:
+
+    "There are two packs of craft beer inside.{w=0.5} Engraved on the cap,{w=0.2} you can see the Exit Bar logo."
+
+    p "Oops,{w=0.2} I think I found the guard's personal stock."
+
+    jump chapter_XIII_board
+
+label chapter_XIII_soundboard:
+
+    "You look behind the soundboard.{w=0.5} A bird's nest is tucked between cables.{w=0.5} This soundboard hasn't been used for at least a decade."
+
+    jump chapter_XIII_first_choices
+
+label chapter_XIII_guard:
+
+    show security guard
+
+    s "Who are you?!{w=0.5} And what are you doing here?!"
+
+    p "..."
+
+    p "ahm-ah-I..."
+
+    p "..."
+
+    s "I said: Who are you?!"
+
+    show bartender normal
+
+    b "Hey Tony,{w=0.2} what's going on here?{w=0.5} [name],{w=0.2} I need you back in the bar..."
+
+    s "..."
+
+    b "Tony.{w=0.2}.{w=0.2}.{w=0.2} sorry about him,{w=0.2} that's my new employee.{w=0.5} He's a bit shy.{w=0.2}.{w=0.2}.{w=0.2} and a bit lost to be honest."
+
+    s "Lucas.{w=0.5} Didn't sense you there.{w=0.5} Can you explain to me the reason why your new \"companion\" is here?"
+
+    b "He's just lost.{w=0.5} He has a horrible sense of direction and is still getting used to the mall.{w=0.5} Isn't that right.{w=0.2}.{w=0.2}.{w=0.2} \"[name!u]\"?!"
+
+    p "Ahm.{w=0.2}.{w=0.2}.{w=0.2} yes.{w=0.2}.{w=0.2}.{w=0.2} that's right..."
+
+    s "Lucas,{w=0.2} you know what snooping around gets you into..."
+
+    s "I'm gonna let this one slide because I owe you one,{w=0.2} but you better discipline this friend of yours or I'll make sure to do it myself..."
+
+    s "And shadows around here sure don't describe me as friendly.{w=0.2}.{w=0.2}.{w=0.2} or forgiving."
+
+    b "You're right,{w=0.2} Tony.{w=0.5} Won't bother you again.{w=0.5} Come on [name].{w=0.5} I need to have a word with you."
+
+label chapter_XIV:
+
+    # Int. Coppertale Mall: Mall Entry. Night
+
+    b "Are you out of your mind?!{w=0.5} In all the places you could be,{w=0.2} you decided to be in the middle of the office of the most dangerous shadow of the entire mall?!"
+
+    b "Do you WANT to get yourself killed out here?"
+
+    p "Sorry,{w=0.2} but that was my way out!"
+
+    p "The only vent they did not seal after that incident,{w=0.2} was the one in the guard's control room!"
+
+    b "What makes you say that?"
+
+    p "It's on the mall's blueprint that I found in the security room."
+
+    b "Blueprint?{w=0.5} Give it to me so I can sense it."
+
+    b "..."
+
+    b "..."
+
+    b "I see..."
+    
+    b "Well,{w=0.2} I don't know how you came to that conclusion,{w=0.2} but according to this,{w=0.2} the only vent that wasn't sealed is on the second floor,{w=0.2} store 22,{w=0.2} as soon as you enter on your right."
+
+    p "{i}That damn liar must have given me the wrong direction on purpose.{/i}"
+
+    p "Oh,{w=0.2} I'm sorry Lucky.{w=0.5} I need to go there right now.{w=0.5} Thank you for saving me back there."
+
+    b "[name],{w=0.2} wait..."
+
+    p "Yes?"
+
+    b "So,{w=0.2} you're really out of your mind."
+
+    p "You can say so,{w=0.2} yes."
+
+    b "hahahah,{w=0.2} crazy.{w=0.2}.{w=0.2}.{w=0.2} but a nice {b}person{/b},{w=0.2} I mean shadow.{w=0.2}.{w=0.2}.{w=0.2} haha"
+    
+    b "Goodbye,{w=0.2} pal."
+
+    if not had_conversation:
+        
+        p "{i}Did he just say person?{w=0.5} He knew all along?!{/i}"
+        
+        p "{i}Well,{w=0.2} I guess the janitor must be lucky to have someone looking out for him.{w=0.5} What a great shadow!{/i}"
+
+label chapter_XV:
+
+    # Int. Coppertale Mall: Arcade. Night
+
+    p "{i}I can't believe it was here all thsi time.{w=0.5} How didn't I see it?!{/i}"
+
+    p "{i}It doesn't matter now!{w=0.5} I need to find him before he gets away.{/i}"
+
+    p "{i}...{/i}"
+
+    p "{i}Oh my!{w=0.5} It's back there,{w=0.2} it's the arcade just like mine!{/i}"
+
+    menu:
+
+        "Go to the back to get the chip.":
+
+            jump chapter_XV_chip
+
+        "Go to your right to find the vent.":
+
+            jump chapter_XVI_vent
+
+label chapter_XV_chip:
+
+    p "{i}Finally,{w=0.2} I can't believe I actually got it after all of this mess!{/i}"
+
+    p "{i}Now,{w=0.2} I should really get going now before that damn shadow escapes!{/i}"
+
+    p "{i}...{/i}"
+
+    p "{i}That 's it!{w=0.5} That has GOT to be the vent Lucky was talking about{/i}"
+
+    # chapeu do newspaper boy
+
+    p "{i}Is that his hat?!{w=0.5} What does that mean?{w=0.5} Was he able to get out?!{/i}"
+
+    p "{i}...{/i}"
+
+    p "{i}Is that the exit?!{w=0.5} Is it half opened?!{w=0.5} Oh god.{w=0.2}.{w=0.2}.{w=0.2} I think he might have already gotten out...{/i}"
+
+    p "{i}Damn it!{w=0.5} I didn't reach him in time!{w=0.5} I hope that doesn't bring much trouble to our world.{/i}"
+
+    p "{i}At least I got out of that nightmare.{w=0.2}.{w=0.2}.{w=0.2} AND I got the chip,{w=0.2} so that's a plus...{/i}"
+
+label chapter_XVI_chip:
+
+    # Int. Player's house. Night
+
+    p "\"three families have mysteriously disappeared in their homes in Bay Meadows Avenue..."
+
+    p "...undergoing investigation due to unsolved mysteries..."
+
+    p "...seven bodies found in two houses near the old Coppertale Mall...\""
+
+    p "{i}Oh dear god.{w=0.2}.{w=0.2}.{w=0.2} what have I done?{/i}"
+
+    p "{i}I can't believe I might have just opened a hole for our demise just to add another thing to my collection...{/i}"
+
+    scene black
+    with fade
+
+    "The end."
+
+    return
+
+label chapter_XVI_vent:
+
+    # player sees the newspaper boy entering the vent
+
+    p "HEY!{w=0.5} You tricked me,{w=0.2} you bastard!"
+
+    n "Yeah so?{w=0.5} What were you expecting?{w=0.5} Did you really think I would ever believe you?"
+
+    menu:
+
+        "Try to gain his trust again by pretending you are sticking to the plan.":
+
+            newspaper_boy_rel += 1
+
+            jump chapter_XVI_pretend
+
+        "Try and trick the newspaper boy to leave the vent.":
+
+            newspaper_boy_rel -= 1
+
+            jump chapter_XVI_trick
+
+label chapter_XVI_pretend:
+
+    p "We had a plan!{w=0.5} You are gonna make us both get caught!"
+
+    n "No!{w=0.5} YOU had a plan!{w=0.5} I just followed YOUR instructions!{w=0.5} Why can't I be the one to leave first?!{w=0.5} It isn't that hard anyways!"
+
+    n "If you are really against us being stuck here like slaves,{w=0.2} come with me and let's leave together!{w=0.5} They will never catch up to us!"
+
+    p "They'll notice your absence!{w=0.5} I mean,{w=0.2} you are pretty much the face of his mall!{w=0.5} Everybody knows you!"
+
+    n "AND I DON'T CARE!{w=0.5} I'M NOT GOING BACK!{w=0.5} I TOLD YOU I WOULD AVENGE MY BROTHER..."
+
+    jump chapter_XVI_guard
+
+label chapter_XVI_trick:
+
+    p "That's also the wrong vent!{w=0.5} I've seen the blueprint again,{w=0.2} and it's definitely in another store!"
+
+    if newspaper_boy_rel <= 0:
+
+        n "Seen?{w=0.5} What do you mean by that?"
+
+        p "..."
+
+        p "Ahm.{w=0.2}.{w=0.2}.{w=0.2} I mean.{w=0.2}.{w=0.2}.{w=0.2} sense!"
+
+        n "..."
+
+        n "You fool.{w=0.5} I had my doubts there for a second,{w=0.2} but I'm sure now.{w=0.2}.{w=0.2}.{w=0.2} you damn filthy.{w=0.2}.{w=0.2}.{w=0.2} HUMAN!"
+
+        # Newspaper boy proceeds to drain the Player
+
+        # Gameover
+
+        return
+    
+    n "NO IT ISN'T!"
+
+    n "I SENSED IT AS WELL AND THERE WERE NO DOUBTS ABOUT IT,{w=0.2} AND THIS IS CLEARLY AN EXIT..."
+
+    p "Ok ok.{w=0.5} Keep your voice down.{w=0.2}.{w=0.2}.{w=0.2} People will hear us..."
+
+    n "...DON'T TRY TO FOOL ME!{w=0.5} WHAT DO..."
+
+label chapter_XVI_guard:
+
+    p "Hey.{w=0.2}.{w=0.2}.{w=0.2} Lower your voice.{w=0.2}.{w=0.2}.{w=0.2} You're gonna get us both in trouble!"
+
+    n "I'M GETTING OUT OF HERE!{w=0.5} AND THERE IS NOTHING..."
+
+    # Security Guard appears
+
+    s "HEY!{w=0.5} I knew you were trying to get away someday!{w=0.5} Unlucky for you,{w=0.2} I'm the guard here."
+
+    # starts draining NPBoy
+
+    p "{i}HOLY CRAP!{/i}"
+
+    menu:
+
+        "Try to run past them and escape through the vents":
+
+            jump chapter_XVI_escape
+
+        "Try and talk your way out of it.":
+
+            jump chapter_XVI_talk
+
+        "Try to hide from the Security Guard":
+
+            jump chapter_XVI_hide
+
+label chapter_XVI_escape:
+
+    "..."
+
+    s "Hey you!{w=0.5} Get back here!"
+
+    p "{i}No [name].{w=0.5} Do not go back.{w=0.5} Do not LOOK back.{w=0.5} Don't even think of the word back right now!{w=0.5} Just keep running until you see an exit or you die of exhaustion!{w=0.5} Nothing else!{/i}"
+
+    "..."
+
+    "The vent door breaks."
+
+    p "{i}arrgh ah.{w=0.2}.{w=0.2}.{w=0.2} ah?!{w=0.5} what?!{w=0.5} Where am I.{w=0.2}.{w=0.2}.{w=0.2} Am I.{w=0.2}.{w=0.2}.{w=0.2} YES!{w=0.5} OH MY GOD YES!{w=0.5} I MANAGED TO GET OUT OF THERE!!!{/i}"
+
+    "Congratulations!{w=0.5} You got out!"
+
+    "The end"
+
+    return
+
+label chapter_XVI_talk:
+
+    p "Oh,{w=0.2} thank god you got him!{w=0.5} I really thought he was gonna escape there!{w=0.5} I'm glad I stopped him until you got here or things could have turned out for the worse."
+
+    s "Do you really think I couldn't sense you back there?{w=0.5} I can sense fear and lies from a mile away.{w=0.5} I know all its ins and outs,{w=0.2} secrets and paths,{w=0.2} shadows and intruders..."
+
+    s "..."
+
+    s "I didn't seal this vent on purpose in case smartheads like you tried something like this..."
+
+    "Gameover."
+
+    return
+
+label chapter_XVI_hide.
+
+    p "{i}Oh god oh god god{/i}"
+
+    p "{i}This guy is a true maniac!{w=0.5} What can I do...?!{/i}"
+
+    p "{i}...{/i}"
+
+    s "I can't believe you just tried to hide from me.{w=0.2}.{w=0.2}.{w=0.2} We can SENSE things you foolish {b}person{/b}."
+
+    "Gameover."
+
+    return
 
 # Image button
 screen newspaper:
