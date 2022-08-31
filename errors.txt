@@ -2,25 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1176: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "Look somewhere else."
-                          ^
-
-File "game/script.rpy", line 1222: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "Look somewhere else."
-                          ^
-
-File "game/script.rpy", line 1683: expected statement.
-    newspaper_boy_rel += 1
-                      ^
-
-File "game/script.rpy", line 1689: expected statement.
-    newspaper_boy_rel -= 1
-                       ^
-
-File "game/script.rpy", line 1799: expected 'label_name_declare' not found.
-    label chapter_XVI_hide.
-         ^
+File "game/script.rpy", line 7: is not terminated with a newline. (Check strings and parenthesis.)
+            right_bar Frame("bar/bar_full.png"
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Tue Aug 30 23:59:11 2022
+Wed Aug 31 19:28:35 2022

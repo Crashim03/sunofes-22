@@ -1,4 +1,14 @@
-﻿# Characters
+﻿screen relationships:
+    bar value AnimatedValue(relationship, 6, 1.0):
+        xalign 0.05 yalign 0.05
+        xmaximum 290
+        ymaximum 10
+        right_bar "bar/empty.png"
+        left_bar "bar/full.png"
+        bar_invert False
+
+
+# Characters
 define s = Character("{b}Security Guard{/b}", color="#ffffff")
 define n = Character("{b}Newspaper Boy{/b}", color="#ffffff")
 define uk = Character("{b}???{/b}", color="#ffffff")
@@ -9,19 +19,7 @@ define v2 = Character("{b}Voice 2{/b}", color="#ffffff")
 define j = Character("{b}Janitor{/b}", color="#ffffff")
 define b = Character("{b}Barman{/b}", color="#ffffff")
 
-screen relationship_points:
-    zorder 0
-    vbar value AnimatedValue(relationship, max_relationship, delay=1.0):
-        xalign 1 yalign 1
-        xmaximum 47
-        ymaximum 327
-        left_bar Frame("bar/bar_empty.png", 0, 0)
-        right_bar Frame("bar/bar_full.png", 0, 0)
-        thumb "bar/thumb.png"
-        thumb_offset 30
-
-default relationship = 3
-default max_relationship = 6
+default relationship = 0
 
 # The game starts here.
 label start:
@@ -62,21 +60,15 @@ label chapter_I:
     show matthew happy
     with dissolve
 
-    $ relationship = 3
-
-
     m "Yes,{w=0.2} it's all good!{w=0.5} I actually called because of the {b}chip{/b} you're looking for."
 
     p "Oh!"
-    $ relationship += 1
     
     p "I hope you have some good news for me!"
 
-    $ relationship += 1
     p "I'm starting to feel like a very unlucky person in general."
-    $ relationship += 1
-    p "I've been looking for one to replace in my {b}arcade{/b} for far too long now."
 
+    p "I've been looking for one to replace in my {b}arcade{/b} for far too long now."
 
     m "Well,{w=0.2} I've been searching on several websites and second-hand shops and still nothing."
 
@@ -405,15 +397,11 @@ label chapter_IV_newspaper:
 
         "What do you mean by draining?":
 
-            $ newspaper_boy_rel -= 1
-
             show newspaper boy
 
             jump chapter_IV_lose_news
 
         "How can humans not be a threat?":
-
-            $ newspaper_boy_rel += 1
 
             show newspaper boy
 
@@ -421,9 +409,20 @@ label chapter_IV_newspaper:
 
 label chapter_IV_lose_news:
 
+    $ relationship = newspaper_boy_rel
+
+    show screen relationships
+
     p "Errm.{w=0.2}.{w=0.2}.{w=0.2} No.{w=0.5} What do you mean by draining?"
 
+    $ newspaper_boy_rel -= 1
+
+    $ relationship = newspaper_boy_rel
+
     n "Oh,{w=0.2} you know.{w=0.2}.{w=0.2}.{w=0.2} consume them."
+
+    hide screen relationships
+    with dissolve
 
     p "{i}Consume?{w=0.5} Just like straight up eating us?{w=0.5} Oh,{w=0.2} man,{w=0.2} don't tell me that letter was right when it talked about my life being at stake.{/i}"
 
@@ -453,9 +452,20 @@ label chapter_IV_lose_news:
 
 label chapter_IV_gain_news:
 
+    $ relationship = newspaper_boy_rel
+
+    show screen relationships
+
     p "Hmm.{w=0.2}.{w=0.2}.{w=0.2} No.{w=0.5} How can humans not be a threat?{w=0.5} I heard they took out 30 of our own..."
 
+    $ newspaper_boy_rel += 1
+
+    $ relationship = newspaper_boy_rel
+
     n "What about the incident in the {b}old mansion{/b}?!{w=0.5} I think everyone is making that a bigger fuss than it is."
+
+    hide screen relationships
+    with dissolve
 
     n "Of course there are always gonna be dangers,{w=0.2} especially when they come in packs,{w=0.2} but that doesn't mean that we can't easily take them down."
 
@@ -501,11 +511,20 @@ label chapter_IV_person:
 
     n "Are you going to buy that newspaper?"
 
+    $ relationship = newspaper_boy_rel
+
+    show screen relationships
+
     p "Hmm,{w=0.2} I'm sorry.{w=0.5} I don't have any cash on me."
 
     $ newspaper_boy_rel -= 1
 
+    $ relationship = newspaper_boy_rel
+
     n "yeah.{w=0.2}.{w=0.2}.{w=0.2} Right!"
+
+    hide screen relationships
+    with dissolve
 
 label chapter_V:
 
@@ -614,7 +633,6 @@ label chapter_VII:
 
         "I'll have a beer.":
 
-            $ barman_rel += 1
             $ asked_drinks = True
 
             show bartender normal
@@ -623,7 +641,6 @@ label chapter_VII:
 
         "Do you serve martinis?":
 
-            $ barman_rel += 1
             $ asked_drinks = True
 
             show bartender normal
@@ -632,25 +649,45 @@ label chapter_VII:
 
         "I'm good,{w=0.2} thanks.":
 
-            $ barman_rel -= 1
-
             show bartender normal
 
             jump chapter_VII_nothing
 
 label chapter_VII_beer:
 
+    $ relationship = barman_rel
+
+    show screen relationships
+
     p "I'll have a beer."
 
+    $ barman_rel += 1
+
+    $ relationship = barman_rel
+
     b "You are my kind of guy!{w=0.5} The classic never fails!"
+
+    hide screen relationships
+    with dissolve
 
     jump chapter_VII_conversation
 
 label chapter_VII_martini:
 
+    $ relationship = barman_rel
+
+    show screen relationships
+
     p "Do you serve martinis?"
 
+    $ barman_rel += 1
+
+    $ relationship = barman_rel
+
     b "Of course I do.{w=0.5} Just one?"
+
+    hide screen relationships
+    with dissolve
 
     p "Yes please."
 
@@ -658,9 +695,20 @@ label chapter_VII_martini:
 
 label chapter_VII_nothing:
 
+    $ relationship = barman_rel
+
+    show screen relationships
+
     p "I'm good,{w=0.2} thanks."
 
+    $ barman_rel -= 1
+
+    $ relationship = barman_rel
+
     b "Okay.{w=0.2}.{w=0.2}.{w=0.2} so,{w=0.2} are you coming to meet some friends?{w=0.5} Or did you come by mistake?"
+
+    hide screen relationships
+    with dissolve
 
     p "I guess we could say I came by mistake."
 
@@ -692,8 +740,6 @@ label chapter_VII_conversation:
 
         "I'm [name],{w=0.2} a not so lucky shadow.":
 
-            $ barman_rel += 1
-
             $ lucky_shadow = True
 
             show bartender normal
@@ -702,17 +748,26 @@ label chapter_VII_conversation:
 
         "I'm [name],{w=0.2} an ophthalmologist":
 
-            $ barman_rel -= 1
-
             show bartender normal
 
             jump chapter_VII_ophtal
 
 label chapter_VII_not_lucky:
 
+    $ relationship = barman_rel
+
+    show screen relationships
+
     p "I haven't said it.{w=0.5} I'm [name].{w=0.5} a not so lucky -.{w=0.2}.{w=0.2}.{w=0.2} shadow."
 
+    $ barman_rel += 1
+
+    $ relationship = barman_rel
+
     b "ha ha ha,{w=0.2} then let me tell you my secret.{w=0.5} Shadows say I'm lucky,{w=0.2} but in reality I'm just very optimistic."
+
+    hide screen relationships
+    with dissolve
 
     b "It's my motto.{w=0.5} “No matter what situation you're in,{w=0.2} there's always a way to win.” There's always an upside.{w=0.5} And THAT's where you should focus on."
 
@@ -736,6 +791,10 @@ label chapter_VII_not_lucky:
 
 label chapter_VII_ophtal:
 
+    $ relationship = barman_rel
+
+    show screen relationships
+
     b "An ophthalmologist?{w=0.5} What is that?"
 
     p "An eye care specialist."
@@ -746,7 +805,14 @@ label chapter_VII_ophtal:
     
     p "It's just a fancy way of saying I help people.{w=0.2}.{w=0.2}.{w=0.2} through.{w=0.2}.{w=0.2}.{w=0.2} their.{w=0.2}.{w=0.2}.{w=0.2} senses..."
 
+    $ barman_rel -= 1
+
+    $ relationship = barman_rel
+
     b "..."
+
+    hide screen relationships
+    with dissolve
 
     jump chapter_VII_beers_fall
 
@@ -823,16 +889,12 @@ label chapter_IX:
 
         "No,{w=0.2} I don't feel anything.":
 
-            $ barman_rel += 1
-
             show bartender normal
             show janitor happy at left
 
             jump chapter_IX_dont_feel
 
         "Yes,{w=0.2} I do feel a little something.":
-
-            $ barman_rel -= 1
 
             show bartender normal
             show janitor happy at left
@@ -841,19 +903,34 @@ label chapter_IX:
 
 label chapter_IX_dont_feel:
 
+    $ relationship = barman_rel
+
+    show screen relationships
+
     p "No,{w=0.2} I don't feel anything.{w=0.5} What about you.{w=0.2}.{w=0.2}.{w=0.2} hm.{w=0.2}.{w=0.2}.{w=0.2} Mr.{w=0.2}.{w=0.2}.{w=0.2} Janitor?{w=0.5} Do you feel anything?"
 
     # suspanse
 
     j "I do,{w=0.2} actually.{w=0.2}.{w=0.2}.{w=0.2} I sense.{w=0.2}.{w=0.2}.{w=0.2} beer!{w=0.5} I'll go ahead and clean it up."
 
+    $ barman_rel += 1
+
+    $ relationship = barman_rel
+
     b "Right!{w=0.5} Almost forgot about that.{w=0.5} Thank you again [name] for the help!"
+
+    hide screen relationships
+    with dissolve
 
     b "However I can repay you,{w=0.2} just say the word.{w=0.5} Drinks tonight are on the house!"
 
     jump chapter_IX_goodbye
 
 label chapter_IX_feel:
+
+    $ relationship = barman_rel
+
+    show screen relationships
 
     p "Yes,{w=0.2} I do feel a little something.{w=0.5} If you ask me,{w=0.2} I think it's coming from those shadows in the back..."
 
@@ -863,7 +940,14 @@ label chapter_IX_feel:
 
     b "It's definitely coming from around here and it's making me feel a bit nauseated."
 
+    $ barman_rel -= 1
+
+    $ relationship = barman_rel
+
     b "Nevertheless,{w=0.2} do you think you could clean up that mess next to the jukebox?"
+
+    hide screen relationships
+    with dissolve
 
     j "Sure will boss!{w=0.5} On it."
 
@@ -964,8 +1048,6 @@ label chapter_X:
 
         "Trick the newspaper boy to giving you the information.":
 
-            $ newspaper_boy_rel += 1
-
             $ tricked_news = True
 
             show newspaper boy
@@ -974,17 +1056,26 @@ label chapter_X:
 
         "Agree with Newspaperboy's ideologies in order to give to the information.":
 
-            $ newspaper_boy_rel += 1
-            
             show newspaper boy
 
             jump chapter_X_agree
 
 label chapter_X_trick:
 
+    $ relationship = newspaper_boy_rel
+
+    show screen relationships
+
     p "Sorry for leaving so abruptly,{w=0.2} you were in the  middle of the story of your brother..."
 
+    $ newspaper_boy_rel -= 1
+
+    $ relationship = newspaper_boy_rel
+
     n "Why do you care?!"
+
+    hide screen relationships
+    with dissolve
 
     p "Well,{w=0.2} you said something about the security guard taking out your brother.{w=0.2}.{w=0.2}.{w=0.2} How did he find out your brother was leaving?"
 
@@ -1035,9 +1126,20 @@ label chapter_X_trick:
 
 label chapter_X_agree:
 
+    $ relationship = newspaper_boy_rel
+
+    show screen relationships
+
     p "What you said about us not reaching our full potential got me thinking..."
 
+    $ newspaper_boy_rel -= 1
+
+    $ relationship = newspaper_boy_rel
+
     n "I knew you weren't brainless like most."
+
+    hide screen relationships
+    with dissolve
 
     p "Yeah,{w=0.2} thank you for enlightening me."
 
@@ -1279,15 +1381,24 @@ label chapter_XII:
 
 label chapter_XII_decrease:
 
-    n "What's that on your hand?"
+    $ relationship = newspaper_boy_rel
 
-    $ newspaper_boy_rel -= 1
+    show screen relationships
+
+    n "What's that on your hand?"
 
     p "Oh it's you!"
 
     n "..."
 
+    $ newspaper_boy_rel -= 1
+
+    $ relationship = newspaper_boy_rel
+
     p "This is.{w=0.2}.{w=0.2}.{w=0.2} ahm.{w=0.2}.{w=0.2}.{w=0.2} some documents from this business I run.{w=0.5} Nothing that important,{w=0.2} but I'm kind of in a hurry to deliver them."
+
+    hide screen relationships
+    with dissolve
 
     n "Yeah,{w=0.2} sure you are!"
 
@@ -1378,11 +1489,20 @@ label chapter_XII_decrease:
 
 label chapter_XII_agree:
 
+    $ relationship = newspaper_boy_rel
+
+    show screen relationships
+
     n "You GOT IT!"
 
     $ newspaper_boy_rel += 1
 
+    $ relationship = newspaper_boy_rel
+
     p "Oh,{w=0.2} hey!"
+
+    hide screen relationships
+    with dissolve
 
     p "Yeah,{w=0.2} I got it!"
 
@@ -1677,21 +1797,28 @@ label chapter_XVI_vent:
 
         "Try to gain his trust again by pretending you are sticking to the plan.":
 
-            $ newspaper_boy_rel += 1
-
             jump chapter_XVI_pretend
 
         "Try and trick the newspaper boy to leave the vent.":
-
-            $ newspaper_boy_rel -= 1
 
             jump chapter_XVI_trick
 
 label chapter_XVI_pretend:
 
+    $ relationship = newspaper_boy_rel
+
+    show screen relationships
+
     p "We had a plan!{w=0.5} You are gonna make us both get caught!"
 
+    $ newspaper_boy_rel += 1
+
+    $ relationship = newspaper_boy_rel
+
     n "No!{w=0.5} YOU had a plan!{w=0.5} I just followed YOUR instructions!{w=0.5} Why can't I be the one to leave first?!{w=0.5} It isn't that hard anyways!"
+
+    hide screen relationships
+    with fade
 
     n "If you are really against us being stuck here like slaves,{w=0.2} come with me and let's leave together!{w=0.5} They will never catch up to us!"
 
@@ -1703,11 +1830,22 @@ label chapter_XVI_pretend:
 
 label chapter_XVI_trick:
 
+    $ relationship = newspaper_boy_rel
+
+    show screen relationships
+
     p "That's also the wrong vent!{w=0.5} I've seen the blueprint again,{w=0.2} and it's definitely in another store!"
+
+    $ newspaper_boy_rel -= 1
+
+    $ relationship = newspaper_boy_rel
 
     if newspaper_boy_rel <= 0:
 
         n "Seen?{w=0.5} What do you mean by that?"
+
+        hide screen relationships
+        with dissolve
 
         p "..."
 
@@ -1724,6 +1862,9 @@ label chapter_XVI_trick:
         return
     
     n "NO IT ISN'T!"
+
+    hide screen relationships
+    with dissolve
 
     n "I SENSED IT AS WELL AND THERE WERE NO DOUBTS ABOUT IT,{w=0.2} AND THIS IS CLEARLY AN EXIT..."
 

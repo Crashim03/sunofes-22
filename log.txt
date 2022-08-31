@@ -1,39 +1,41 @@
-Tue Aug 30 23:59:10 2022
+Wed Aug 31 18:27:43 2022
 Windows-10-10.0.19044
 Ren'Py 8.0.0.22062402
  
 
-Bootstrap to the start of init.init took 0.04s
+Bootstrap to the start of init.init took 0.09s
 Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.02s
-Loading script took 0.25s
-Loading save slot metadata. took 0.02s
+Loader init took 0.09s
+Loading error handling took 0.10s
+Loading script took 0.64s
+Loading save slot metadata. took 0.27s
 Loading persistent took 0.00s
-
-File "game/script.rpy", line 1176: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "Look somewhere else."
-                          ^
-
-File "game/script.rpy", line 1222: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "Look somewhere else."
-                          ^
-
-File "game/script.rpy", line 1683: expected statement.
-    newspaper_boy_rel += 1
-                      ^
-
-File "game/script.rpy", line 1689: expected statement.
-    newspaper_boy_rel -= 1
-                       ^
-
-File "game/script.rpy", line 1799: expected 'label_name_declare' not found.
-    label chapter_XVI_hide.
-         ^
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.17s
+Loading analysis data took 0.04s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Interface start took 0.31s
+Creating interface object took 0.53s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.01s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.05s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.17s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -43,42 +45,80 @@ Vendor: "b'NVIDIA Corporation'"
 Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
 Version: b'4.6.0 NVIDIA 512.78'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1739, 978) drawable=(1739, 978)
+Screen sizes: virtual=(1920, 1080) physical=(1738, 978) drawable=(1738, 978)
 Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1738, 970) drawable=(1738, 970)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 108, in script
+    pause 0.5
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 2212, in execute
+    self.call("execute")
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 2200, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 453, in execute_pause
+    renpy.pause(delay)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\exports.py", line 1533, in pause
+    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3658, in interact_core
+    self.compute_overlay()
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 2958, in compute_overlay
+    i()
+  File "game/script.rpy", line 37, in stats_overlay
+    frame(
+NameError: name 'frame' is not defined
+
+While running game code:
+  File "game/script.rpy", line 108, in script
+    pause 0.5
+  File "renpy/common/000statements.rpy", line 453, in execute_pause
+    renpy.pause(delay)
+  File "game/script.rpy", line 37, in stats_overlay
+    frame(
+NameError: name 'frame' is not defined
 Resetting cache.
-Bootstrap to the start of init.init took 74.68s
+Bootstrap to the start of init.init took 434.71s
 Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.01s
-Loading script took 0.20s
-Loading save slot metadata. took 0.01s
+Loader init took 0.05s
+Loading error handling took 0.05s
+Loading script took 0.44s
+Loading save slot metadata. took 0.04s
 Loading persistent took 0.00s
 Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.08s
+Running init code took 0.05s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
-Dump and make backups. took 0.04s
+Dump and make backups. took 0.11s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.02s
+Initial gc. took 0.05s
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.22s
+Creating interface object took 0.43s
 Cleaning stores took 0.00s
-Init translation took 0.03s
+Init translation took 0.05s
 Build styles took 0.00s
-Load screen analysis took 0.01s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.02s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.06s
+Interface start took 0.08s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -88,5 +128,4131 @@ Vendor: "b'NVIDIA Corporation'"
 Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
 Version: b'4.6.0 NVIDIA 512.78'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1739, 978) drawable=(1739, 978)
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
 Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+
+Full traceback:
+  File "game/script.rpy", line 73, in script
+    m "Yes,{w=0.2} it's all good!{w=0.5} I actually called because of the {b}chip{/b} you're looking for."
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 901, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\exports.py", line 1373, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 1253, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 914, in do_display
+    display_say(who,
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 653, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3905, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 2601, in draw_screen
+    surftree = renpy.display.render.render_screen(
+  File "render.pyx", line 495, in renpy.display.render.render_screen
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 704, in render
+    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 2052, in render
+    thumb = render(self.style.thumb, width, thumb_dim, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\im.py", line 627, in render
+    return cache.get(self, render=True)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\im.py", line 295, in get
+    surf = image.load()
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\im.py", line 723, in load
+    raise e
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\im.py", line 688, in load
+    filelike = renpy.loader.load(self.filename)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\loader.py", line 820, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file 'thumb.png'.
+
+While loading <renpy.display.im.Image object ('thumb.png') at 0x0000000003f196a0>:
+  File "game/script.rpy", line 73, in script
+    m "Yes,{w=0.2} it's all good!{w=0.5} I actually called because of the {b}chip{/b} you're looking for."
+OSError: Couldn't find file 'thumb.png'.
+Resetting cache.
+Bootstrap to the start of init.init took 465.67s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.43s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 530.19s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.44s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.08s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 532.31s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.22s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 570.92s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.44s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 573.00s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.21s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.46s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.00s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 738.75s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.47s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 755.86s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 771.78s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 885.37s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.44s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.11s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.47s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.13s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.11s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 3306.39s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.58s
+Loading save slot metadata. took 0.05s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.11s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.47s
+Cleaning stores took 0.00s
+Init translation took 0.08s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.12s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 3346.61s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.42s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.09s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 3399.03s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.53s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 3455.27s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.04s
+Loading script took 0.45s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 3466.34s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.50s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.11s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 3601.10s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.50s
+Loading save slot metadata. took 0.05s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.01s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 3651.45s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.21s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 7: is not terminated with a newline. (Check strings and parenthesis.)
+            right_bar Frame("bar/bar_full.png"
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.57s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 3656.21s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.07s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+
+Full traceback:
+  File "game/script.rpy", line 76, in script
+    p "I hope you have some good news for me!"
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 901, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\exports.py", line 1373, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 1253, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 914, in do_display
+    display_say(who,
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 653, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3905, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 2601, in draw_screen
+    surftree = renpy.display.render.render_screen(
+  File "render.pyx", line 495, in renpy.display.render.render_screen
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 704, in render
+    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 2109, in render
+    foresurf = render(self.style.fore_bar, width, height, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\im.py", line 627, in render
+    return cache.get(self, render=True)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\im.py", line 295, in get
+    surf = image.load()
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\im.py", line 723, in load
+    raise e
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\im.py", line 688, in load
+    filelike = renpy.loader.load(self.filename)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\loader.py", line 820, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file 'bar/bar_empty.png'.
+
+While loading <renpy.display.im.Image object ('bar/bar_empty.png') at 0x0000000005a7fc10>:
+  File "game/script.rpy", line 76, in script
+    p "I hope you have some good news for me!"
+OSError: Couldn't find file 'bar/bar_empty.png'.
+Resetting cache.
+Bootstrap to the start of init.init took 3827.07s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.59s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.08s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.46s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.12s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.12s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 3916.50s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.46s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.49s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 3942.99s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.44s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 3955.56s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 3972.39s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.20s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 3994.18s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.50s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.46s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4023.34s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.48s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.46s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4035.87s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.42s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4067.98s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.48s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 4457.47s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.48s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4471.55s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.44s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4488.66s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.46s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4496.71s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.49s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4506.15s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.04s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4512.68s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.46s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4519.23s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.46s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.04s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.46s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4528.69s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.43s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4535.17s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.04s
+Loading script took 0.46s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4547.68s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.51s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.46s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 4570.97s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.48s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.08s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 4603.29s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.43s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.08s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4612.70s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.48s
+Loading save slot metadata. took 0.05s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4623.69s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.44s
+Loading save slot metadata. took 0.05s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4631.61s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.47s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.16s
+Save pyanalysis. took 0.04s
+Save bytecode. took 0.03s
+Running _start took 0.01s
+Performance test:
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4644.15s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.56s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.46s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4717.05s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4740.44s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.50s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.11s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 4814.93s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.04s
+Loading script took 0.58s
+Loading save slot metadata. took 0.06s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.04s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.11s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 101, in script
+    p "Okay.{w=0.5} No worries!{w=0.5} I just know we will find a way to get that chip and repair my arcade."
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 901, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\exports.py", line 1373, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 1253, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 914, in do_display
+    display_say(who,
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 653, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 2, in execute
+    bar value AnimatedValue("relationship", 6, delay=1.0):
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\sl2\sldisplayables.py", line 260, in sl2bar
+    return renpy.display.behavior.Bar(range, value, width, height, vertical=False, **properties)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 1936, in __init__
+    adjustment = value.get_adjustment()
+  File "renpy/common/00barvalues.rpy", line 82, in get_adjustment
+    self.adjustment = ui.adjustment(value=self.value, range=self.range, adjustable=False)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 1785, in __init__
+    self._value = type(range)(value)
+ValueError: invalid literal for int() with base 10: 'relationship'
+
+While running game code:
+  File "game/script.rpy", line 101, in script
+    p "Okay.{w=0.5} No worries!{w=0.5} I just know we will find a way to get that chip and repair my arcade."
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 2, in execute
+    bar value AnimatedValue("relationship", 6, delay=1.0):
+  File "renpy/common/00barvalues.rpy", line 82, in get_adjustment
+    self.adjustment = ui.adjustment(value=self.value, range=self.range, adjustable=False)
+ValueError: invalid literal for int() with base 10: 'relationship'
+Resetting cache.
+Bootstrap to the start of init.init took 4888.02s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 101, in script
+    p "Okay.{w=0.5} No worries!{w=0.5} I just know we will find a way to get that chip and repair my arcade."
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 901, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\exports.py", line 1373, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 1253, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 914, in do_display
+    display_say(who,
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 653, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 2, in execute
+    bar value AnimatedValue("relationship", 6, 1.0):
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\sl2\sldisplayables.py", line 260, in sl2bar
+    return renpy.display.behavior.Bar(range, value, width, height, vertical=False, **properties)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 1936, in __init__
+    adjustment = value.get_adjustment()
+  File "renpy/common/00barvalues.rpy", line 82, in get_adjustment
+    self.adjustment = ui.adjustment(value=self.value, range=self.range, adjustable=False)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 1785, in __init__
+    self._value = type(range)(value)
+ValueError: invalid literal for int() with base 10: 'relationship'
+
+While running game code:
+  File "game/script.rpy", line 101, in script
+    p "Okay.{w=0.5} No worries!{w=0.5} I just know we will find a way to get that chip and repair my arcade."
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 2, in execute
+    bar value AnimatedValue("relationship", 6, 1.0):
+  File "renpy/common/00barvalues.rpy", line 82, in get_adjustment
+    self.adjustment = ui.adjustment(value=self.value, range=self.range, adjustable=False)
+ValueError: invalid literal for int() with base 10: 'relationship'
+Resetting cache.
+Bootstrap to the start of init.init took 4962.55s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.57s
+Loading save slot metadata. took 0.05s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.04s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.11s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.46s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 101, in script
+    p "Okay.{w=0.5} No worries!{w=0.5} I just know we will find a way to get that chip and repair my arcade."
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 901, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\exports.py", line 1373, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 1253, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 914, in do_display
+    display_say(who,
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 653, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 2, in execute
+    bar value AnimatedValue("relationship", 6, 1.0):
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\sl2\sldisplayables.py", line 260, in sl2bar
+    return renpy.display.behavior.Bar(range, value, width, height, vertical=False, **properties)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 1936, in __init__
+    adjustment = value.get_adjustment()
+  File "renpy/common/00barvalues.rpy", line 82, in get_adjustment
+    self.adjustment = ui.adjustment(value=self.value, range=self.range, adjustable=False)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 1785, in __init__
+    self._value = type(range)(value)
+ValueError: invalid literal for int() with base 10: 'relationship'
+
+While running game code:
+  File "game/script.rpy", line 101, in script
+    p "Okay.{w=0.5} No worries!{w=0.5} I just know we will find a way to get that chip and repair my arcade."
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 1, in execute
+    screen relationships:
+  File "game/script.rpy", line 2, in execute
+    bar value AnimatedValue("relationship", 6, 1.0):
+  File "renpy/common/00barvalues.rpy", line 82, in get_adjustment
+    self.adjustment = ui.adjustment(value=self.value, range=self.range, adjustable=False)
+ValueError: invalid literal for int() with base 10: 'relationship'
+Resetting cache.
+Bootstrap to the start of init.init took 4990.26s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.48s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Resetting cache.
+Bootstrap to the start of init.init took 5047.05s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.08s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.42s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5105.03s
+Early init took 0.00s
+Loader init took 0.07s
+Loading error handling took 0.03s
+Loading script took 0.51s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5117.53s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5127.00s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.42s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5137.96s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5147.46s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.50s
+Loading save slot metadata. took 0.05s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.47s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5185.66s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.51s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5259.99s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.04s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5400.77s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5509.34s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.48s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5576.14s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.04s
+Loading script took 0.48s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5724.00s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5767.12s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.48s
+Cleaning stores took 0.00s
+Init translation took 0.08s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.04s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5838.03s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.44s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5927.49s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.46s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 5955.09s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.44s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.44s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6035.52s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.46s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.47s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6124.99s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.03s
+Loading script took 0.47s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.47s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6190.27s
+Early init took 0.00s
+Loader init took 0.06s
+Loading error handling took 0.04s
+Loading script took 0.46s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6266.18s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.46s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6307.35s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.06s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.43s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.12s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6366.59s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.48s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.45s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6471.18s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.48s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.01s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.15s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.48s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6534.95s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.39s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.37s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.02s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6598.60s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.40s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.37s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.03s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6662.25s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.39s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.38s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.03s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6671.65s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.39s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.37s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6735.38s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.04s
+Loading script took 0.43s
+Loading save slot metadata. took 0.04s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.39s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.01s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6808.09s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.38s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.37s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6813.01s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.39s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.37s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6911.33s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.39s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.08s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.38s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6917.71s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.42s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.37s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.02s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 6997.94s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.39s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.38s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.03s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 7098.01s
+Early init took 0.00s
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.38s
+Loading save slot metadata. took 0.03s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\alext\\OneDrive - Universidade de Lisboa\\Documentos\\Programas\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\alext\\AppData\\Roaming/RenPy/backups\\SuNoFes_22':
+Dump and make backups. took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.37s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.03s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 512.78'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2400, 1271) drawable=(2400, 1271)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1600, 1232) drawable=(1600, 1232)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1001) drawable=(1920, 1001)
+Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
