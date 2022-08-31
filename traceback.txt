@@ -1,70 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 101, in script
-    p "Okay.{w=0.5} No worries!{w=0.5} I just know we will find a way to get that chip and repair my arcade."
-  File "game/script.rpy", line 1, in execute
-    screen relationships:
-  File "game/script.rpy", line 1, in execute
-    screen relationships:
-  File "game/script.rpy", line 2, in execute
-    bar value AnimatedValue("relationship", 6, 1.0):
-  File "renpy/common/00barvalues.rpy", line 82, in get_adjustment
-    self.adjustment = ui.adjustment(value=self.value, range=self.range, adjustable=False)
-ValueError: invalid literal for int() with base 10: 'relationship'
+  File "game/script.rpy", line 1626, in script
+    $ control_room_tries += 1
+  File "game/script.rpy", line 1626, in <module>
+    $ control_room_tries += 1
+NameError: name 'control_room_tries' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 101, in script
-    p "Okay.{w=0.5} No worries!{w=0.5} I just know we will find a way to get that chip and repair my arcade."
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 901, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\exports.py", line 1373, in say
-    who(what, *args, **kwargs)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 1253, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 914, in do_display
-    display_say(who,
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\character.py", line 653, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 451, in visit_all
-    callback(self)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 462, in per_interact
-    self.update()
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\screen.py", line 653, in update
-    self.screen.function(**self.scope)
-  File "game/script.rpy", line 1, in execute
-    screen relationships:
-  File "game/script.rpy", line 1, in execute
-    screen relationships:
-  File "game/script.rpy", line 2, in execute
-    bar value AnimatedValue("relationship", 6, 1.0):
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\sl2\sldisplayables.py", line 260, in sl2bar
-    return renpy.display.behavior.Bar(range, value, width, height, vertical=False, **properties)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 1936, in __init__
-    adjustment = value.get_adjustment()
-  File "renpy/common/00barvalues.rpy", line 82, in get_adjustment
-    self.adjustment = ui.adjustment(value=self.value, range=self.range, adjustable=False)
-  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\display\behavior.py", line 1785, in __init__
-    self._value = type(range)(value)
-ValueError: invalid literal for int() with base 10: 'relationship'
+  File "game/script.rpy", line 1626, in script
+    $ control_room_tries += 1
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\ast.py", line 1111, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\alext\OneDrive - Universidade de Lisboa\Documentos\Programas\renpy-8.0.0-sdk\renpy\python.py", line 1049, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 1626, in <module>
+    $ control_room_tries += 1
+NameError: name 'control_room_tries' is not defined
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.0.22062402
 SuNoFes 22 1.0
-Wed Aug 31 19:50:28 2022
+Wed Aug 31 23:36:57 2022

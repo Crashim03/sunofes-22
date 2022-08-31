@@ -7,7 +7,6 @@
         left_bar "bar/full.png"
         bar_invert False
 
-
 # Characters
 define s = Character("{b}Security Guard{/b}", color="#ffffff")
 define n = Character("{b}Newspaper Boy{/b}", color="#ffffff")
@@ -21,6 +20,33 @@ define b = Character("{b}Barman{/b}", color="#ffffff")
 
 default relationship = 0
 
+init:
+    python:
+
+        def countdown(st, at, length=0.0):
+
+            remaining = length - st
+            minutes = (int) (length - st) / 60
+            seconds = (int) (length - st) % 60
+
+
+            if remaining > 10.0:
+                return Text("%02d:" % minutes + "%02d" % seconds, color="#fff", size=48), .1
+            elif remaining > 0.0:
+                return Text("%02d:" % minutes + "%02d" % seconds, color="#f00", size=48), .1
+            else:
+                renpy.hide_screen("countdown")
+                renpy.jump("gameover")
+
+screen countdown(cd_time):
+    zorder 2
+    frame:
+        #xalign 1.0
+        xpos 1250
+        yalign 0.1
+        background None
+        add DynamicDisplayable(countdown, length=cd_time)
+
 # The game starts here.
 label start:
 
@@ -28,6 +54,7 @@ label start:
     $ escalator_tries = 0
     $ dark_hallway_tries = 0
     $ merry_go_round_tries = 0
+    $ control_room_tries = 0
     $ asked_drinks = False
     $ lucky_shadow = False
     $ has_keys = False
@@ -41,14 +68,27 @@ label start:
     stop sound
     stop music fadeout 3.0
 
-label chapter_I:
+label name:
 
     # A maneira como se pergunta o nome do jogo tem que ser melhorada
     python:
 
-        name = renpy.input("What's your name?")
+        name = renpy.input("Name your character:")
 
         name = name.strip()
+
+    menu:
+        "Your name will be [name]. Are you sure?"
+
+        "Yes":
+
+            jump chapter_I
+
+        "No":
+
+            jump name
+
+label chapter_I:
 
     scene int cafe
     with fade
@@ -61,6 +101,7 @@ label chapter_I:
     with dissolve
 
     m "Yes,{w=0.2} it's all good!{w=0.5} I actually called because of the {b}chip{/b} you're looking for."
+
 
     p "Oh!"
     
@@ -1181,7 +1222,7 @@ label chapter_X_agree:
 
     n "It's very unlikely.{w=0.2}.{w=0.2}.{w=0.2} but not impossible."
 
-    n "He usually walks around the mall entry and it takes him more or less 45 seconds to a minute to go from his room,{w=0.2} around the entrance,{w=0.2} and back."
+    n "He usually walks around the mall entry and it takes him more or less 90 to go from his room,{w=0.2} around the entrance,{w=0.2} and back."
 
     n "So,{w=0.2} you need to be quick."
 
@@ -1213,7 +1254,10 @@ label chapter_XI:
 
     p "Where should I start?"
 
+    show screen countdown(90)
+
 label chapter_XI_first_options:
+
 
     menu:
         "Search through the documents in the paper trays.":
@@ -1324,13 +1368,21 @@ label chapter_XI_jacket:
 
 label chapter_XI_inner_pocket:
 
-    "There are three keys inside.{w=0.5} A small one with a golden shell engraved,{w=0.2} a medium-sized one,{w=0.2} rusty and old,{w=0.2} and a large one with a blue tag."
+    if has_keys:
 
-    p "{i}I'll keep them.{w=0.5} They might be useful!{/i}"
+        "You already got the keys."
 
-    $ has_keys = True
+        jump chapter_XI_jacket
 
-    jump chapter_XI_jacket
+    else:
+
+        "There are three keys inside.{w=0.5} A small one with a golden shell engraved,{w=0.2} a medium-sized one,{w=0.2} rusty and old,{w=0.2} and a large one with a blue tag."
+
+        p "{i}I'll keep them.{w=0.5} They might be useful!{/i}"
+
+        $ has_keys = True
+
+    jump chapter_XI_first_options
 
 label chapter_XI_small_key:
 
@@ -1355,6 +1407,8 @@ label chapter_XI_large_key:
     "The lock opens."
 
     p "Finally!"
+
+    hide screen countdown
 
 label chapter_XII:
 
@@ -1724,7 +1778,7 @@ label chapter_XV:
 
     # Int. Coppertale Mall: Arcade. Night
 
-    p "{i}I can't believe it was here all thsi time.{w=0.5} How didn't I see it?!{/i}"
+    p "{i}I can't believe it was here all this time.{w=0.5} How didn't I see it?!{/i}"
 
     p "{i}It doesn't matter now!{w=0.5} I need to find him before he gets away.{/i}"
 
@@ -1948,11 +2002,21 @@ label chapter_XVI_hide:
 
     return
 
+label gameover:
+
+    p "Oh,{w=0.2} I took too much time!"
+
+    s "HEY!"
+
+    "Gameover"
+
+    return
+
 # Image button
 screen newspaper:
     imagebutton:
         xpos 0.25
         ypos 0.15
-        idle "images/newspaper.jpg"
+        idle "images/newspaper.png"
 
         action Jump("chapter_IV_newspaper")
