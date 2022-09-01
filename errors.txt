@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 7: is not terminated with a newline. (Check strings and parenthesis.)
-            right_bar Frame("bar/bar_full.png"
+File "game/script.rpy", line 1962: expected statement.
+    at right
+    ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Wed Aug 31 19:28:35 2022
+Thu Sep  1 15:36:06 2022

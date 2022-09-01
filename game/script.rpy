@@ -363,17 +363,13 @@ label chapter_III:
 
     p "{i}Oh,{w=0.2} what's this?{/i}"
 
-    # Carta para clicar
+    window hide
 
-    # Aparece carta com texto:
+    call screen letter
 
-    "Letter:
-    To anyone who can read this,
+label chapter_III_letter:
 
-    I don't have much time left,{w=0.2} so I'm trying to make this as brief as possible. 
-    If you have been hearing and having some strange sights,{w=0.2} be aware. These aren't what you are expecting as they're not human and definitely not friendly either. 
-    Despite that, DON'T PANIC!{w=0.5} They cannot see you, just hear and feel your presence. If they find out you're a human, your life will be at stake.
-    Unfortunately, I've come to discover this too late, but I hope you don't make the same mistakes as me."
+    window show
 
     p "{i}Okay this is just too weird for me. I think for now I'll just head back home.{/i}"
 
@@ -385,11 +381,15 @@ label chapter_IV:
 
     p "I think this is the newspaper stand that I passed through a while ago."
 
+    window hide
+
     call screen newspaper
 
 label chapter_IV_newspaper:
     
     # Front page appears
+
+    window show
 
     p "August 3rd,{w=0.2} 12 055."
 
@@ -544,6 +544,8 @@ label chapter_IV_gain_news:
 
 label chapter_IV_person:
 
+    "You see a silhouette of a human in the distance."
+
     p "{i}Is that a person I'm seeing?{w=0.5} Finally,{w=0.2} I might have found a way out of this place!{/i}"
 
     p "{i}Maybe he's as lost as I am and we can work together to get out of here.{w=0.5} Or,{w=0.2} at least,{w=0.2} we can make some sense of what is going on here!{/i}"
@@ -567,12 +569,12 @@ label chapter_IV_person:
     hide screen relationships
     with dissolve
 
+    hide newspaper boy
+    with dissolve
+
 label chapter_V:
 
     # Int. Mall Entry. Night.
-
-    hide newspaper boy
-    with dissolve
 
     show janitor happy
     with dissolve
@@ -625,10 +627,11 @@ label chapter_V:
 
     p "No,{w=0.2} don't worry!{w=0.5} Thank you for asking."
 
-    # janitor smiles
-
     hide janitor happy
     with dissolve
+
+    scene black
+    with fade
 
     p "{i}How can he be here for that long?{w=0.5} And they've never noticed him?!{w=0.5} This is a heck of a situation.{/i}"
 
@@ -648,9 +651,8 @@ label chapter_VII:
 
     # Int. Coppertale Mall - Exit Bar (interior). Night
 
-    # (One the other side of that door there’s a bar. In the center is a shadow which is the Barman.)
-
     show bartender normal
+    with dissolve
 
     b "Welcome to the Exit Bar!{w=0.5} Can I get you anything?"
 
@@ -914,7 +916,7 @@ label chapter_IX:
     show janitor happy at left
     with dissolve
 
-    show bartender normal
+    show bartender normal at right
     with dissolve
 
     b "Thank you,{w=0.2} [name]."
@@ -930,14 +932,14 @@ label chapter_IX:
 
         "No,{w=0.2} I don't feel anything.":
 
-            show bartender normal
+            show bartender normal at right
             show janitor happy at left
 
             jump chapter_IX_dont_feel
 
         "Yes,{w=0.2} I do feel a little something.":
 
-            show bartender normal
+            show bartender normal at right
             show janitor happy at left
 
             jump chapter_IX_feel
@@ -1257,7 +1259,6 @@ label chapter_XI:
     show screen countdown(90)
 
 label chapter_XI_first_options:
-
 
     menu:
         "Search through the documents in the paper trays.":
@@ -1613,6 +1614,9 @@ label chapter_XII_agree:
     hide newspaper boy
     with dissolve
 
+    scene black
+    with fade
+
     p "{i}I guess if there are lunatics in the human world,{w=0.2} the shadow world won't be much different.{/i}"
 
 label chapter_XIII:
@@ -1693,6 +1697,7 @@ label chapter_XIII_soundboard:
 label chapter_XIII_guard:
 
     show security guard
+    with dissolve
 
     s "Who are you?!{w=0.5} And what are you doing here?!"
 
@@ -1704,7 +1709,8 @@ label chapter_XIII_guard:
 
     s "I said: Who are you?!"
 
-    show bartender normal
+    show bartender normal at right
+    with dissolve
 
     b "Hey Tony,{w=0.2} what's going on here?{w=0.5} [name],{w=0.2} I need you back in the bar..."
 
@@ -1726,9 +1732,18 @@ label chapter_XIII_guard:
 
     b "You're right,{w=0.2} Tony.{w=0.5} Won't bother you again.{w=0.5} Come on [name].{w=0.5} I need to have a word with you."
 
+    hide security guard
+    with dissolve
+
+    hide bartender normal
+    with dissolve
+
 label chapter_XIV:
 
     # Int. Coppertale Mall: Mall Entry. Night
+
+    show bartender normal
+    with dissolve
 
     b "Are you out of your mind?!{w=0.5} In all the places you could be,{w=0.2} you decided to be in the middle of the office of the most dangerous shadow of the entire mall?!"
 
@@ -1767,6 +1782,9 @@ label chapter_XIV:
     b "hahahah,{w=0.2} crazy.{w=0.2}.{w=0.2}.{w=0.2} but a nice {b}person{/b},{w=0.2} I mean shadow.{w=0.2}.{w=0.2}.{w=0.2} haha"
     
     b "Goodbye,{w=0.2} pal."
+
+    hide bartender normal
+    with dissolve
 
     if not had_conversation:
         
@@ -1845,6 +1863,9 @@ label chapter_XVI_vent:
 
     p "HEY!{w=0.5} You tricked me,{w=0.2} you bastard!"
 
+    show newspaper boy
+    with dissolve
+
     n "Yeah so?{w=0.5} What were you expecting?{w=0.5} Did you really think I would ever believe you?"
 
     menu:
@@ -1872,7 +1893,7 @@ label chapter_XVI_pretend:
     n "No!{w=0.5} YOU had a plan!{w=0.5} I just followed YOUR instructions!{w=0.5} Why can't I be the one to leave first?!{w=0.5} It isn't that hard anyways!"
 
     hide screen relationships
-    with fade
+    with dissolve
 
     n "If you are really against us being stuck here like slaves,{w=0.2} come with me and let's leave together!{w=0.5} They will never catch up to us!"
 
@@ -1933,10 +1954,19 @@ label chapter_XVI_guard:
     n "I'M GETTING OUT OF HERE!{w=0.5} AND THERE IS NOTHING..."
 
     # Security Guard appears
+    show security guard at right
+    with dissolve
 
     s "HEY!{w=0.5} I knew you were trying to get away someday!{w=0.5} Unlucky for you,{w=0.2} I'm the guard here."
 
+    n "AAHHHH..."
+
+    n "..."
+
     # starts draining NPBoy
+
+    hide newspaper boy
+    with fade
 
     p "{i}HOLY CRAP!{/i}"
 
@@ -2020,3 +2050,11 @@ screen newspaper:
         idle "images/newspaper.png"
 
         action Jump("chapter_IV_newspaper")
+
+screen letter:
+    imagebutton:
+        xpos 0.05
+        ypos -0.01
+        idle "images/letter.png"
+
+        action Jump("chapter_III_letter")
