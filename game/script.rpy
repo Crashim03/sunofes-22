@@ -373,13 +373,13 @@ label chapter_III_letter:
 
     window show
 
-    p "{i}Okay this is just too weird for me. I think for now I'll just head back home.{/i}"
+    p "{i}Okay this is just too weird for me.{w=0.5} I think for now I'll just head back home.{/i}"
 
     "You turn back to see the newspaper stand."
 
 label chapter_IV:
 
-    scene newspaper stand
+    scene np stand
     with fade
 
     p "I think this is the newspaper stand that I passed through a while ago."
@@ -390,6 +390,7 @@ label chapter_IV:
 
 label chapter_IV_newspaper:
     
+
     window show
 
     p "August 3rd,{w=0.2} 12 055."
@@ -1076,7 +1077,7 @@ label chapter_IX_goodbye:
 
 label chapter_X:
 
-    scene newspaper stand
+    scene np stand
     with fade
 
     p "Hello again."
@@ -1835,7 +1836,7 @@ label chapter_XV_chip:
     scene vent hat
     with fade
 
-    p "{i}That 's it!{w=0.5} That has GOT to be the vent Lucky was talking about{/i}"
+    p "{i}That's it!{w=0.5} That has GOT to be the vent Lucky was talking about{/i}"
 
     p "{i}Is that his hat?!{w=0.5} What does that mean?{w=0.5} Was he able to get out?!{/i}"
 
@@ -2069,8 +2070,8 @@ screen newspaper:
 
 screen letter:
     imagebutton:
-        xpos 0.05
-        ypos -0.01
+        xpos 0.18
+        ypos 0.1
         idle "images/letter.png"
 
         action Jump("chapter_III_letter")
