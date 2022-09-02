@@ -70,7 +70,6 @@ label start:
 
 label name:
 
-    # A maneira como se pergunta o nome do jogo tem que ser melhorada
     python:
 
         name = renpy.input("Name your character:")
@@ -101,7 +100,6 @@ label chapter_I:
     with dissolve
 
     m "Yes,{w=0.2} it's all good!{w=0.5} I actually called because of the {b}chip{/b} you're looking for."
-
 
     p "Oh!"
     
@@ -335,13 +333,17 @@ label chapter_III:
 
     "You follow the sign."
 
-    # Int. Mall - Mall (you can see a lit up store). Night.
+    scene mall center
+    with fade
 
     "One of the stores to your right is lit with candles.{w=0.5} You get a little bit closer and hear two distinct {b}voices{/b} coming from inside."
 
     p "{i}People?{w=0.5} What are they doing here?{/i}"
 
     "You carefully get closer to hear the conversation."
+
+    scene black
+    with fade
 
     v1 "Have you heard about the security reinforcement?"
 
@@ -377,7 +379,8 @@ label chapter_III_letter:
 
 label chapter_IV:
 
-    # Int. Coppertale Mall - Newspaper Stand. Night. 
+    scene newspaper stand
+    with fade
 
     p "I think this is the newspaper stand that I passed through a while ago."
 
@@ -387,8 +390,6 @@ label chapter_IV:
 
 label chapter_IV_newspaper:
     
-    # Front page appears
-
     window show
 
     p "August 3rd,{w=0.2} 12 055."
@@ -574,7 +575,8 @@ label chapter_IV_person:
 
 label chapter_V:
 
-    # Int. Mall Entry. Night.
+    scene int mall
+    with fade
 
     show janitor happy
     with dissolve
@@ -639,7 +641,8 @@ label chapter_V:
 
 label chapter_VI:
 
-    # Int. Coppertale Mall - Exit Bar (exterior). Night
+    scene exit bar outside
+    with fade
 
     # (A door with a big Exit sign appears)
 
@@ -649,7 +652,8 @@ label chapter_VI:
 
 label chapter_VII:
 
-    # Int. Coppertale Mall - Exit Bar (interior). Night
+    scene exit bar
+    with fade
 
     show bartender normal
     with dissolve
@@ -889,7 +893,8 @@ label chapter_VII_beers_fall:
 
 label chapter_VIII:
 
-    # Int. Coppertale Mall - Mall entry. Night
+    scene int mall
+    with fade
 
     p "Excuse me,{w=0.2} sir?"
 
@@ -909,7 +914,8 @@ label chapter_VIII:
 
 label chapter_IX:
 
-    # Int. Coppertale Mall - Exit Bar. Night
+    scene exit bar
+    with fade
 
     p "We're here!"
 
@@ -951,8 +957,6 @@ label chapter_IX_dont_feel:
     show screen relationships
 
     p "No,{w=0.2} I don't feel anything.{w=0.5} What about you.{w=0.2}.{w=0.2}.{w=0.2} hm.{w=0.2}.{w=0.2}.{w=0.2} Mr.{w=0.2}.{w=0.2}.{w=0.2} Janitor?{w=0.5} Do you feel anything?"
-
-    # suspanse
 
     j "I do,{w=0.2} actually.{w=0.2}.{w=0.2}.{w=0.2} I sense.{w=0.2}.{w=0.2}.{w=0.2} beer!{w=0.5} I'll go ahead and clean it up."
 
@@ -1072,7 +1076,8 @@ label chapter_IX_goodbye:
 
 label chapter_X:
 
-    # Int. Coppertale Mall - Newspaper Stand. Night.
+    scene newspaper stand
+    with fade
 
     p "Hello again."
 
@@ -1246,7 +1251,8 @@ label chapter_XI:
 
     p " I must be quick."
 
-    # Int. Coppertale Mall - Control Room. Night
+    scene control room
+    with fade
 
     "As you enter the room you see two paper trays piled up on the left and two cabinets side by side on top of the front desk."
 
@@ -1413,7 +1419,8 @@ label chapter_XI_large_key:
 
 label chapter_XII:
 
-    # Int. Coppertale Mall - Mall entry. Night
+    scene int mall
+    with fade
 
     p "I got it!"
 
@@ -1621,7 +1628,8 @@ label chapter_XII_agree:
 
 label chapter_XIII:
 
-    # Int. Coppertale Mall: Control Room. Night
+    scene control room
+    with fade
 
     p "Where would a vent in this room be?!"
 
@@ -1740,7 +1748,8 @@ label chapter_XIII_guard:
 
 label chapter_XIV:
 
-    # Int. Coppertale Mall: Mall Entry. Night
+    scene int mall
+    with fade
 
     show bartender normal
     with dissolve
@@ -1794,7 +1803,8 @@ label chapter_XIV:
 
 label chapter_XV:
 
-    # Int. Coppertale Mall: Arcade. Night
+    scene arcade
+    with fade
 
     p "{i}I can't believe it was here all this time.{w=0.5} How didn't I see it?!{/i}"
 
@@ -1822,9 +1832,10 @@ label chapter_XV_chip:
 
     p "{i}...{/i}"
 
-    p "{i}That 's it!{w=0.5} That has GOT to be the vent Lucky was talking about{/i}"
+    scene vent hat
+    with fade
 
-    # chapeu do newspaper boy
+    p "{i}That 's it!{w=0.5} That has GOT to be the vent Lucky was talking about{/i}"
 
     p "{i}Is that his hat?!{w=0.5} What does that mean?{w=0.5} Was he able to get out?!{/i}"
 
@@ -1838,7 +1849,8 @@ label chapter_XV_chip:
 
 label chapter_XVI_chip:
 
-    # Int. Player's house. Night
+    scene house
+    with fade
 
     p "\"three families have mysteriously disappeared in their homes in Bay Meadows Avenue..."
 
@@ -1859,12 +1871,13 @@ label chapter_XVI_chip:
 
 label chapter_XVI_vent:
 
-    # player sees the newspaper boy entering the vent
-
-    p "HEY!{w=0.5} You tricked me,{w=0.2} you bastard!"
+    scene vent
+    with fade
 
     show newspaper boy
     with dissolve
+
+    p "HEY!{w=0.5} You tricked me,{w=0.2} you bastard!"
 
     n "Yeah so?{w=0.5} What were you expecting?{w=0.5} Did you really think I would ever believe you?"
 
@@ -1953,7 +1966,6 @@ label chapter_XVI_guard:
 
     n "I'M GETTING OUT OF HERE!{w=0.5} AND THERE IS NOTHING..."
 
-    # Security Guard appears
     show security guard at right
     with dissolve
 
@@ -1962,8 +1974,6 @@ label chapter_XVI_guard:
     n "AAHHHH..."
 
     n "..."
-
-    # starts draining NPBoy
 
     hide newspaper boy
     with fade
@@ -1989,6 +1999,9 @@ label chapter_XVI_escape:
     "..."
 
     s "Hey you!{w=0.5} Get back here!"
+
+    scene black
+    with fade
 
     p "{i}No [name].{w=0.5} Do not go back.{w=0.5} Do not LOOK back.{w=0.5} Don't even think of the word back right now!{w=0.5} Just keep running until you see an exit or you die of exhaustion!{w=0.5} Nothing else!{/i}"
 
@@ -2023,6 +2036,9 @@ label chapter_XVI_hide:
     p "{i}Oh god oh god god{/i}"
 
     p "{i}This guy is a true maniac!{w=0.5} What can I do...?!{/i}"
+
+    scene black
+    with fade
 
     p "{i}...{/i}"
 
