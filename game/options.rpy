@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("SuNoFes 22")
+define config.name = _("Between the Shadows")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -37,6 +37,11 @@ define gui.about = _p("""Game made by:
 
 For {b}SuNoFes 22{/b}
 
+While looking for a chip to fix your beloved arcade machine, you decide to sneak into an abandoned mall. This place is different from what you expected and you end up getting lost.
+Do you think you can still find what you're looking for? Do you have the courage to further explore this place? 
+
+It's all up to you.
+
 {b}GameDev Técnico{/b} is a Portuguese youth association of university students interested in developing games based in 
 Instituto Superior Técnico.
 """)
@@ -46,7 +51,7 @@ Instituto Superior Técnico.
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "SuNoFes_22"
+define build.name = "BetweentheShadows"
 
 
 ## Sounds and music ############################################################

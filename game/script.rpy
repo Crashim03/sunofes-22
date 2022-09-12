@@ -20,6 +20,17 @@ define b = Character("{b}Barman{/b}", color="#ffffff")
 
 default relationship = 0
 
+define music.coffe = "audio/coffe.mp3"
+define music.mall = "audio/mall.mp3"
+define music.nothing = "audio/nothing.mp3"
+define audio.draining = "audio/Draining.mp3"
+define audio.glass = "audio/GlassBreaking.wav"
+define music.bar = "audio/bar.mp3"
+define audio.cabinet = "audio/Cabinet.mp3"
+define audio.keys = "audio/Keys.wav"
+define audio.coins = "audio/PocketCoins.mp3"
+define music.talking = "audio/talking.mp3"
+
 init:
     python:
 
@@ -89,6 +100,8 @@ label name:
 
 label chapter_I:
 
+    play music coffe
+
     scene int cafe
     with fade
 
@@ -111,7 +124,7 @@ label chapter_I:
 
     m "Well,{w=0.2} I've been searching on several websites and second-hand shops and still nothing."
 
-    m "I even set aside some time to dig into the arcade model itself and I'm afraid to break it to you that it hasn't been produced since 1971."
+    m "I even set aside some time to dig into the arcade model itself and I'm afraid to break it to you that it hasn't been produced since 1985."
     
     m "Which makes it a lot harder to find that chip than it already is."
 
@@ -183,8 +196,9 @@ label chapter_I:
 
     p "Sure do!"
 
-label chapter_II:
+    stop music fadeout 1.0
 
+label chapter_II:
 
     scene black
     with fade
@@ -198,6 +212,8 @@ label chapter_II:
     with Fade(2,1,1)
 
     window show
+
+    play music mall
 
     p "{i}This is way different than I recalled.{w=0.5} A lot bigger too.{w=0.5} I hope I can find a way to the arcade.{/i}"
 
@@ -342,6 +358,8 @@ label chapter_III:
 
     "You carefully get closer to hear the conversation."
 
+    play music talking
+
     scene black
     with fade
 
@@ -378,6 +396,8 @@ label chapter_III_letter:
     "You turn back to see the newspaper stand."
 
 label chapter_IV:
+
+    play music mall
 
     scene np stand
     with fade
@@ -483,7 +503,13 @@ label chapter_IV_lose_news:
 
     n "We are being restrained by ourselves.{w=0.2}.{w=0.2}.{w=0.2} Perpetually afraid and ignorant,{w=0.2} while humans are freely roaming around."
 
-    n "But I'm not gonna succumb to this sort of mindset!"
+    n "I know their presence makes us weaker,{w=0.2} that it makes us fade from existence,{w=0.2} but I really think that only happens when there's a stronger presence."
+    
+    n "That's why it's harder for us to notice them if they're alone and need to be careful about any intruders."
+
+    p "I see..."
+
+    n "But one thing is true.{w=0.5} I'm not gonna succumb to this sort of mindset!"
 
     n "You'll see,{w=0.2} one of these days,{w=0.2} I'll find a way around that {b}guard in the main entrance{/b} and I'll reach the outside..."
 
@@ -638,9 +664,9 @@ label chapter_V:
 
     p "{i}How can he be here for that long?{w=0.5} And they've never noticed him?!{w=0.5} This is a heck of a situation.{/i}"
 
-    p "{i}These creatures are traces of a long gone human presence,{w=0.2} but they coexist with us because we bring liveliness to places.{/i}"
-
 label chapter_VI:
+
+    stop music fadeout 1.0
 
     scene exit bar outside
     with fade
@@ -655,6 +681,8 @@ label chapter_VII:
 
     scene exit bar
     with fade
+
+    play music bar
 
     show bartender normal
     with dissolve
@@ -866,7 +894,7 @@ label chapter_VII_ophtal:
 
 label chapter_VII_beers_fall:
 
-    # noise of beers falling
+    play sound glass
 
     b "Oh god damn it!{w=0.5} What a damn mess!"
 
@@ -894,6 +922,8 @@ label chapter_VII_beers_fall:
 
 label chapter_VIII:
 
+    stop music fadeout 1.0
+
     scene int mall
     with fade
 
@@ -917,6 +947,8 @@ label chapter_IX:
 
     scene exit bar
     with fade
+
+    play music bar
 
     p "We're here!"
 
@@ -970,7 +1002,7 @@ label chapter_IX_dont_feel:
     hide screen relationships
     with dissolve
 
-    b "However I can repay you,{w=0.2} just say the word.{w=0.5} Drinks tonight are on the house!"
+    b "However I can repay you,{w=0.2} just say the word."
 
     jump chapter_IX_goodbye
 
@@ -982,7 +1014,7 @@ label chapter_IX_feel:
 
     p "Yes,{w=0.2} I do feel a little something.{w=0.5} If you ask me,{w=0.2} I think it's coming from those shadows in the back..."
 
-    j "No,{w=0.2} people always tell me that.{w=0.5} It's probably because they {b}sense{/b} we're two most good-looking individuals around the block."
+    j "No,{w=0.2} people always tell me that.{w=0.5} It's probably because they {b}sense{/b} we're the two most good-looking individuals around the block."
 
     p "{i}The fact that this guy hasn't died yet is a complete mystery to me!{/i}"
 
@@ -1008,6 +1040,8 @@ label chapter_IX_goodbye:
 
     if barman_rel <= 0:
 
+        stop music 
+
         $ had_conversation = True
 
         b "Hey,{w=0.2} now that's just the two of us.{w=0.5} I need to tell you a couple of words."
@@ -1030,6 +1064,8 @@ label chapter_IX_goodbye:
 
         b "So just.{w=0.2}.{w=0.2}.{w=0.2} be careful out there!"
 
+        play music bar
+
     p "Thanks."
 
     p "Anyways I can't stay here much longer."
@@ -1048,7 +1084,7 @@ label chapter_IX_goodbye:
 
     b "Well kid.{w=0.2}.{w=0.2}.{w=0.2} not gonna lie to you.{w=0.5} Nobody has gone out there for years now."
 
-    b "And the last person who tried,{w=0.2} got drained by the mall security guard."
+    b "And the last shadow who tried,{w=0.2} got drained by the mall security guard."
 
     p "Do you know how he tried to get out?"
 
@@ -1077,6 +1113,8 @@ label chapter_IX_goodbye:
 
 label chapter_X:
 
+    play music mall
+
     scene np stand
     with fade
 
@@ -1103,7 +1141,7 @@ label chapter_X:
 
             jump chapter_X_trick
 
-        "Agree with Newspaperboy's ideologies in order to give to the information.":
+        "Agree with Newspaperboy's ideologies in order to give the information.":
 
             show newspaper boy
 
@@ -1128,11 +1166,11 @@ label chapter_X_trick:
 
     p "Well,{w=0.2} you said something about the security guard taking out your brother.{w=0.2}.{w=0.2}.{w=0.2} How did he find out your brother was leaving?"
 
-    n "You see,{w=0.2} my brother was always smart,{w=0.2} but not very cautious.{w=0.2}.{w=0.2}.{w=0.2} The day he planned his escape,{w=0.2} he was followed by the guard until one of the vents."
+    n "You see,{w=0.2} my brother was always smart,{w=0.2} but not very cautious.{w=0.2}.{w=0.2}.{w=0.2} The day he planned his escape,{w=0.2} he was followed by the guard to one of the vents."
 
     p "I see..."
 
-    n "They then proceeded to publicly drain him so the community saw what would happen if anybody else tried to escape."
+    n "He was drained right there and then."
 
     n "To this day I still have nightmares about that night..."
 
@@ -1152,13 +1190,11 @@ label chapter_X_trick:
 
     n "Now THAT is the big problem I'm still trying to solve.{w=0.5} The vents of the mall are all registered in its blueprints,{w=0.2} which are located in the security guard's control room."
 
-    n "Problem is: The guard is trained to sense from very far away so he can easily feel anyone just by getting near the room."
-
-    n "Plus,{w=0.2} after getting in,{w=0.2} we would still need some time to unlock the safe where the prints are."
+    n "Problem is:{w=0.2} The security guard usually walks around the mall entry,{w=0.2} which makes it a lot harder to access his room."
     
-    n "Which is very impossible due to the fact the security guard doesn't go farther than a 45-60 seconds distance from the room."
+    n "For what I noticed,{w=0.2} it takes him more or less 45 seconds to a minute to go from his office,{w=0.2} around the entrance, and back."
 
-    n "So yeah,{w=0.2} that's the biggest challenge to get through.{w=0.5} But as I said: one day I WILL find a way and get the hell out of this rat hole!"
+    n "So yeah,{w=0.2} that's the biggest challenge to get through."
 
     p "What a hell of a story.{w=0.2}.{w=0.2}.{w=0.2} I sincerely wish you the best of luck finding a way!"
 
@@ -1243,6 +1279,8 @@ label chapter_X_agree:
 
 label chapter_XI:
 
+    stop music fadeout 1.0
+
     scene black 
     with fade
 
@@ -1254,6 +1292,8 @@ label chapter_XI:
 
     scene control room
     with fade
+
+    play music nothing
 
     "As you enter the room you see two paper trays piled up on the left and two cabinets side by side on top of the front desk."
 
@@ -1277,6 +1317,8 @@ label chapter_XI_first_options:
             jump chapter_XI_paper_cabinets
 
         "Search the jacket on the coat hanger.":
+
+            play sound coins
 
             jump chapter_XI_jacket
 
@@ -1317,10 +1359,14 @@ label chapter_XI_paper_cabinets:
     menu:
 
         "Go through the documents on the left cabinet.":
+
+            play sound cabinet
             
             jump chapter_XI_left_cabinet
 
         "Try to open the right cabinet.":
+
+            play sound cabinet
 
             jump chapter_XI_right_cabinet
 
@@ -1384,6 +1430,8 @@ label chapter_XI_inner_pocket:
 
     else:
 
+        play sound keys
+
         "There are three keys inside.{w=0.5} A small one with a golden shell engraved,{w=0.2} a medium-sized one,{w=0.2} rusty and old,{w=0.2} and a large one with a blue tag."
 
         p "{i}I'll keep them.{w=0.5} They might be useful!{/i}"
@@ -1419,6 +1467,8 @@ label chapter_XI_large_key:
     hide screen countdown
 
 label chapter_XII:
+
+    play music mall
 
     scene int mall
     with fade
@@ -1520,8 +1570,6 @@ label chapter_XII_decrease:
     n "Ok Ok fine,{w=0.2} you win!"
 
     n "Give me that damn blueprint then."
-
-    # Paper sound effect
 
     n "..."
 
@@ -1705,6 +1753,8 @@ label chapter_XIII_soundboard:
 
 label chapter_XIII_guard:
 
+    play music nothing
+
     show security guard
     with dissolve
 
@@ -1748,6 +1798,8 @@ label chapter_XIII_guard:
     with dissolve
 
 label chapter_XIV:
+
+    stop music fadeout 1.0
 
     scene int mall
     with fade
@@ -1804,6 +1856,8 @@ label chapter_XIV:
 
 label chapter_XV:
 
+    play music mall
+
     scene arcade
     with fade
 
@@ -1826,6 +1880,8 @@ label chapter_XV:
             jump chapter_XVI_vent
 
 label chapter_XV_chip:
+
+    play music nothing
 
     p "{i}Finally,{w=0.2} I can't believe I actually got it after all of this mess!{/i}"
 
@@ -1850,6 +1906,8 @@ label chapter_XV_chip:
 
 label chapter_XVI_chip:
 
+    stop music fadeout 1.0
+
     scene house
     with fade
 
@@ -1866,11 +1924,13 @@ label chapter_XVI_chip:
     scene black
     with fade
 
-    "The end."
+    "Neutral Ending."
 
     return
 
 label chapter_XVI_vent:
+
+    play music nothing
 
     scene vent
     with fade
@@ -1942,11 +2002,13 @@ label chapter_XVI_trick:
 
         n "..."
 
+        stop music
+
         n "You fool.{w=0.5} I had my doubts there for a second,{w=0.2} but I'm sure now.{w=0.2}.{w=0.2}.{w=0.2} you damn filthy.{w=0.2}.{w=0.2}.{w=0.2} HUMAN!"
 
-        # Newspaper boy proceeds to drain the Player
+        play sound draining
 
-        # Gameover
+        "Bad Ending 4"
 
         return
     
@@ -1974,12 +2036,18 @@ label chapter_XVI_guard:
 
     n "AAHHHH..."
 
+    stop music
+
+    play sound draining
+
     n "..."
 
     hide newspaper boy
     with fade
 
     p "{i}HOLY CRAP!{/i}"
+
+    play music nothing
 
     menu:
 
@@ -2014,7 +2082,7 @@ label chapter_XVI_escape:
 
     "Congratulations!{w=0.5} You got out!"
 
-    "The end"
+    "Good Ending."
 
     return
 
@@ -2026,9 +2094,13 @@ label chapter_XVI_talk:
 
     s "..."
 
+    stop music
+
     s "I didn't seal this vent on purpose in case smartheads like you tried something like this..."
 
-    "Gameover."
+    play sound draining
+
+    "Bad Ending 1."
 
     return
 
@@ -2043,19 +2115,27 @@ label chapter_XVI_hide:
 
     p "{i}...{/i}"
 
+    stop music
+
     s "I can't believe you just tried to hide from me.{w=0.2}.{w=0.2}.{w=0.2} We can SENSE things you foolish {b}person{/b}."
 
-    "Gameover."
+    play sound draining
+
+    "Bad Ending 2."
 
     return
 
 label gameover:
 
+    stop music
+
     p "Oh,{w=0.2} I took too much time!"
 
     s "HEY!"
 
-    "Gameover"
+    play sound draining
+
+    "Bad Ending 3."
 
     return
 

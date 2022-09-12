@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1962: expected statement.
-    at right
-    ^
+File "game/script.rpy", line 393: play requires a file
+    play mall
+             ^
+
+File "game/script.rpy", line 1095: play requires a file
+    play mall
+             ^
+
+File "game/script.rpy", line 1834: play requires a file
+    play mall
+             ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Thu Sep  1 15:36:06 2022
+Sat Sep  3 18:02:58 2022
